@@ -1,4 +1,3 @@
-
 document.addEventListener("DOMContentLoaded", () => {
   initMobileMenu();
   initMobileMockup();
@@ -8,10 +7,8 @@ document.addEventListener("DOMContentLoaded", () => {
   initDemoModal();
   initHeroParallax();
 
-
   initChatbot();
 });
-
 
 function initMobileMenu() {
   const hamburger = document.querySelector(".hamburger-menu");
@@ -33,7 +30,6 @@ function initMobileMenu() {
     });
   });
 }
-
 
 function initMobileMockup() {
   const answerButton = document.getElementById("answer-button");
@@ -76,12 +72,11 @@ function initMobileMockup() {
         currentTimeEl.textContent = formatTime(audio.currentTime);
       if (totalTimeEl && !totalTimeEl.textContentSet) {
         totalTimeEl.textContent = formatTime(audio.duration);
-        totalTimeEl.textContentSet = true; 
+        totalTimeEl.textContentSet = true;
       }
     });
   }
 }
-
 
 function initHeroParallax() {
   const heroImage = document.querySelector(".mobile-mockup");
@@ -100,7 +95,6 @@ function initHeroParallax() {
     heroImage.style.transform = "rotateY(0deg) rotateX(0deg) translateZ(0)";
   });
 }
-
 
 function initTestimonialSlider() {
   const wrapper = document.querySelector(".testimonial-wrapper");
@@ -127,7 +121,6 @@ function initTestimonialSlider() {
 
   showTestimonial(0);
 }
-
 
 function initAdvancedScrollAnimations() {
   const animatedElements = document.querySelectorAll(
@@ -163,11 +156,10 @@ function initAdvancedScrollAnimations() {
 
   animatedElements.forEach((el, index) => {
     el.classList.add("animate-on-scroll");
-    el.style.transitionDelay = `${(index % 6) * 100}ms`; 
+    el.style.transitionDelay = `${(index % 6) * 100}ms`;
     observer.observe(el);
   });
 }
-
 
 function initFaqAccordion() {
   const faqItems = document.querySelectorAll(".faq-item");
@@ -184,7 +176,6 @@ function initFaqAccordion() {
     });
   });
 }
-
 
 function initDemoModal() {
   const openModalBtn = document.getElementById("open-demo-modal");
@@ -242,7 +233,6 @@ function initDemoModal() {
         );
       }
 
-     
       fetch(emailApiURL, {
         method: "POST",
         headers: { "Content-Type": "application/json" },
@@ -262,9 +252,10 @@ function initDemoModal() {
   });
 }
 
-
 function initChatbot() {
-  const chatbotLogoContainer = document.getElementById("chatbot-logo-container");
+  const chatbotLogoContainer = document.getElementById(
+    "chatbot-logo-container"
+  );
   const chatContainer = document.getElementById("chat-container");
   const welcomeScreen = document.getElementById("welcome-screen");
   const chatScreen = document.getElementById("chat-screen");
@@ -282,9 +273,8 @@ function initChatbot() {
   const chatBox = document.getElementById("chat-box");
   const typingIndicator = document.getElementById("typing-indicator");
 
-  if (!chatContainer) return; 
+  if (!chatContainer) return;
 
-  
   let chatHistory = [];
   const endUserId = generateUUID();
 
@@ -322,7 +312,7 @@ function initChatbot() {
       initializeChat();
     }
   };
-  
+
   const clearChat = () => {
     chatBox.innerHTML = "";
     chatHistory = [];
@@ -340,7 +330,7 @@ function initChatbot() {
   function displayMessage(message, className) {
     const messageDiv = document.createElement("div");
     messageDiv.classList.add("message", className);
-    messageDiv.innerHTML = message; 
+    messageDiv.innerHTML = message;
     chatBox.appendChild(messageDiv);
     chatBox.scrollTop = chatBox.scrollHeight;
   }
@@ -358,7 +348,7 @@ function initChatbot() {
     botMessageDiv.classList.add("message", "bot-message");
     chatBox.appendChild(botMessageDiv);
     chatBox.scrollTop = chatBox.scrollHeight;
-    
+
     let botResponseText = "";
 
     try {
@@ -372,7 +362,7 @@ function initChatbot() {
           query: messageText,
           unique_id: "PHC-ISB-2025",
           end_user_id: endUserId,
-          history: chatHistory.slice(-10), 
+          history: chatHistory.slice(-10),
         }),
       });
 
@@ -387,20 +377,21 @@ function initChatbot() {
         const { value, done } = await reader.read();
         if (done) break;
         botResponseText += decoder.decode(value, { stream: true });
-        botMessageDiv.innerHTML = botResponseText; 
+        botMessageDiv.innerHTML = botResponseText;
         chatBox.scrollTop = chatBox.scrollHeight;
       }
 
       chatHistory.push(`Assistant: ${botResponseText}`);
     } catch (error) {
       console.error("Chat API Error:", error);
-      botMessageDiv.innerHTML = "Error: Unable to get a response. Please try again.";
+      botMessageDiv.innerHTML =
+        "Error: Unable to get a response. Please try again.";
     } finally {
       typingIndicator.style.display = "none";
       chatBox.scrollTop = chatBox.scrollHeight;
     }
   }
-  
+
   chatbotLogoContainer.addEventListener("click", openChat);
   minimizeWelcome.addEventListener("click", closeChat);
   minimizeChat.addEventListener("click", closeChat);
@@ -415,8 +406,8 @@ function initChatbot() {
   });
 
   dotsBtn.addEventListener("click", (e) => {
-      e.stopPropagation();
-      dropdownMenu.classList.toggle("show");
+    e.stopPropagation();
+    dropdownMenu.classList.toggle("show");
   });
 
   window.addEventListener("click", () => {
