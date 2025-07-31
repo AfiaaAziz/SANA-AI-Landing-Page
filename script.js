@@ -1,3 +1,4 @@
+
 document.addEventListener("DOMContentLoaded", () => {
   initMobileMenu();
   initMobileMockup();
@@ -6,7 +7,11 @@ document.addEventListener("DOMContentLoaded", () => {
   initFaqAccordion();
   initDemoModal();
   initHeroParallax();
+
+
+  initChatbot();
 });
+
 
 function initMobileMenu() {
   const hamburger = document.querySelector(".hamburger-menu");
@@ -14,11 +19,13 @@ function initMobileMenu() {
   const navLinks = document.querySelector(".nav-links");
   const hamburgerIcon = hamburger.querySelector("i");
   if (!navLinks || !hamburgerIcon) return;
+
   hamburger.addEventListener("click", () => {
     navLinks.classList.toggle("active");
     const isActive = navLinks.classList.contains("active");
     hamburgerIcon.className = isActive ? "fas fa-times" : "fas fa-bars";
   });
+
   navLinks.querySelectorAll("a").forEach((link) => {
     link.addEventListener("click", () => {
       navLinks.classList.remove("active");
@@ -26,6 +33,7 @@ function initMobileMenu() {
     });
   });
 }
+
 
 function initMobileMockup() {
   const answerButton = document.getElementById("answer-button");
@@ -43,6 +51,7 @@ function initMobileMockup() {
       playScreen.classList.add("active");
     });
   }
+
   if (playButton) {
     playButton.addEventListener("click", () => {
       playScreen.classList.remove("active");
@@ -50,11 +59,13 @@ function initMobileMockup() {
       if (audio) audio.play().catch(console.error);
     });
   }
+
   if (audio) {
     audio.addEventListener("ended", () => {
       playingScreen.classList.remove("active");
       callScreen.classList.add("active");
     });
+
     audio.addEventListener("timeupdate", () => {
       if (isNaN(audio.duration)) return;
       const formatTime = (time) =>
@@ -65,11 +76,12 @@ function initMobileMockup() {
         currentTimeEl.textContent = formatTime(audio.currentTime);
       if (totalTimeEl && !totalTimeEl.textContentSet) {
         totalTimeEl.textContent = formatTime(audio.duration);
-        totalTimeEl.textContentSet = true;
+        totalTimeEl.textContentSet = true; 
       }
     });
   }
 }
+
 
 function initHeroParallax() {
   const heroImage = document.querySelector(".mobile-mockup");
@@ -81,7 +93,6 @@ function initHeroParallax() {
     const { offsetWidth, offsetHeight } = hero;
     const xPos = (clientX / offsetWidth - 0.5) * 30;
     const yPos = (clientY / offsetHeight - 0.5) * 30;
-
     heroImage.style.transform = `rotateY(${xPos}deg) rotateX(${-yPos}deg) translateZ(20px)`;
   });
 
@@ -89,6 +100,7 @@ function initHeroParallax() {
     heroImage.style.transform = "rotateY(0deg) rotateX(0deg) translateZ(0)";
   });
 }
+
 
 function initTestimonialSlider() {
   const wrapper = document.querySelector(".testimonial-wrapper");
@@ -116,6 +128,7 @@ function initTestimonialSlider() {
   showTestimonial(0);
 }
 
+
 function initAdvancedScrollAnimations() {
   const animatedElements = document.querySelectorAll(
     ".content-section, .feature-card, .step-card, .result-card"
@@ -126,40 +139,13 @@ function initAdvancedScrollAnimations() {
     (entries, observer) => {
       entries.forEach((entry) => {
         if (entry.isIntersecting) {
-          const delay = parseInt(entry.target.style.transitionDelay || "0");
-
-          setTimeout(() => {
-            entry.target.classList.add("is-visible");
-          }, delay);
-
+          entry.target.classList.add("is-visible");
           observer.unobserve(entry.target);
         }
       });
     },
-    {
-      root: null,
-      threshold: 0.1,
-      rootMargin: "0px 0px -50px 0px", // Trigger a bit earlier
-    }
+    { threshold: 0.1, rootMargin: "0px 0px -50px 0px" }
   );
-
-  animatedElements.forEach((el) => {
-    el.classList.add("animate-on-scroll");
-  });
-
-  const grids = document.querySelectorAll(
-    ".features-grid, .steps-grid, .results-grid"
-  );
-  grids.forEach((grid) => {
-    const items = grid.querySelectorAll(".animate-on-scroll");
-    items.forEach((item, index) => {
-      item.style.transitionDelay = `${index * 100}ms`;
-    });
-  });
-
-  animatedElements.forEach((el) => {
-    observer.observe(el);
-  });
 
   const style = document.createElement("style");
   style.innerHTML = `
@@ -174,11 +160,19 @@ function initAdvancedScrollAnimations() {
     }
   `;
   document.head.appendChild(style);
+
+  animatedElements.forEach((el, index) => {
+    el.classList.add("animate-on-scroll");
+    el.style.transitionDelay = `${(index % 6) * 100}ms`; 
+    observer.observe(el);
+  });
 }
+
 
 function initFaqAccordion() {
   const faqItems = document.querySelectorAll(".faq-item");
   if (faqItems.length === 0) return;
+
   faqItems.forEach((item) => {
     const question = item.querySelector(".faq-question");
     question.addEventListener("click", () => {
@@ -190,6 +184,7 @@ function initFaqAccordion() {
     });
   });
 }
+
 
 function initDemoModal() {
   const openModalBtn = document.getElementById("open-demo-modal");
@@ -206,8 +201,8 @@ function initDemoModal() {
 
   const googleScriptURL =
     "https://script.google.com/macros/s/AKfycby0_9PMfhKJnlvUutKO7ugr0Vi5cwCPxetWuq5omwUWvymH-p2hEhcUVZwPw95dl_ED/exec";
-
   const emailApiURL = "https://53082e1ef006.ngrok-free.app/send-confirmation";
+
   if (dateInput) {
     dateInput.min = new Date().toISOString().split("T")[0];
   }
@@ -240,29 +235,24 @@ function initDemoModal() {
       const googleResult = await googleResponse.json();
 
       if (googleResult.result !== "success") {
-        if (googleResult.error === "duplicate") {
-          throw new Error("This email has already been registered for a demo.");
-        }
-        throw new Error("Failed to save your request. Please try again.");
+        throw new Error(
+          googleResult.error === "duplicate"
+            ? "This email has already been registered."
+            : "Failed to save your request. Please try again."
+        );
       }
 
-      try {
-        await fetch(emailApiURL, {
-          method: "POST",
-          headers: {
-            "Content-Type": "application/json",
-          },
-          body: JSON.stringify({ name: userName, email: userEmail }),
-        });
-      } catch (emailError) {
-        console.error("Email API Error:", emailError);
-      }
+     
+      fetch(emailApiURL, {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ name: userName, email: userEmail }),
+      }).catch((emailError) => console.error("Email API Error:", emailError));
 
       formContainer.style.display = "none";
       successMessage.style.display = "block";
       demoForm.reset();
     } catch (error) {
-      console.error("Submission Error:", error);
       errorMessage.textContent = error.message;
       errorMessage.style.display = "block";
     } finally {
@@ -273,189 +263,165 @@ function initDemoModal() {
 }
 
 
+function initChatbot() {
+  const chatbotLogoContainer = document.getElementById("chatbot-logo-container");
+  const chatContainer = document.getElementById("chat-container");
+  const welcomeScreen = document.getElementById("welcome-screen");
+  const chatScreen = document.getElementById("chat-screen");
+  const contactBtn = document.getElementById("contact-btn");
+  const contactNavBtn = document.getElementById("contact-nav-btn");
+  const backBtn = document.getElementById("back-btn");
+  const homeBtn = document.getElementById("home-btn");
+  const minimizeWelcome = document.getElementById("minimize-welcome");
+  const minimizeChat = document.getElementById("minimize-chat");
+  const dotsBtn = document.getElementById("dots-btn");
+  const dropdownMenu = document.getElementById("dropdown-menu");
+  const clearChatBtn = document.getElementById("clear-chat-btn");
+  const sendBtn = document.getElementById("send-btn");
+  const userInput = document.getElementById("user-input");
+  const chatBox = document.getElementById("chat-box");
+  const typingIndicator = document.getElementById("typing-indicator");
 
-//---------
+  if (!chatContainer) return; 
 
-      document.addEventListener("DOMContentLoaded", () => {
-        const chatbotLogoContainer = document.getElementById(
-          "chatbot-logo-container"
-        );
-        const chatContainer = document.getElementById("chat-container");
+  
+  let chatHistory = [];
+  const endUserId = generateUUID();
 
-        const welcomeScreen = document.getElementById("welcome-screen");
-        const chatScreen = document.getElementById("chat-screen");
+  function generateUUID() {
+    return "xxxxxxxx-xxxx-4xxx-yxxx-xxxxxxxxxxxx".replace(/[xy]/g, (c) => {
+      const r = (Math.random() * 16) | 0;
+      const v = c === "x" ? r : (r & 0x3) | 0x8;
+      return v.toString(16);
+    });
+  }
 
-        const contactBtn = document.getElementById("contact-btn");
-        const contactNavBtn = document.getElementById("contact-nav-btn");
-        const backBtn = document.getElementById("back-btn");
-        const homeBtn = document.getElementById("home-btn");
-        const minimizeWelcome = document.getElementById("minimize-welcome");
-        const minimizeChat = document.getElementById("minimize-chat");
-        const dotsBtn = document.getElementById("dots-btn");
-        const dropdownMenu = document.getElementById("dropdown-menu");
-        const clearChatBtn = document.getElementById("clear-chat-btn");
-        const sendBtn = document.getElementById("send-btn");
-        const userInput = document.getElementById("user-input");
-        const chatBox = document.getElementById("chat-box");
-        const typingIndicator = document.getElementById("typing-indicator");
+  const openChat = () => {
+    chatContainer.classList.add("open");
+    chatbotLogoContainer.style.display = "none";
+  };
 
-        let chatHistory = [];
-        const endUserId = generateUUID();
+  const closeChat = () => {
+    chatContainer.classList.remove("open");
+    chatbotLogoContainer.style.display = "flex";
+  };
 
-        function generateUUID() {
-          return "xxxxxxxx-xxxx-4xxx-yxxx-xxxxxxxxxxxx".replace(
-            /[xy]/g,
-            function (c) {
-              const r = (Math.random() * 16) | 0;
-              const v = c == "x" ? r : (r & 0x3) | 0x8;
-              return v.toString(16);
-            }
-          );
-        }
+  const showWelcomeScreen = () => {
+    welcomeScreen.classList.add("active");
+    chatScreen.classList.remove("active");
+    homeBtn.classList.add("active");
+    contactNavBtn.classList.remove("active");
+  };
 
-        const openChat = () => {
-          chatContainer.classList.add("open");
-          chatbotLogoContainer.style.display = "none";
-        };
+  const showChatScreen = () => {
+    welcomeScreen.classList.remove("active");
+    chatScreen.classList.add("active");
+    homeBtn.classList.remove("active");
+    contactNavBtn.classList.add("active");
+    if (chatBox.children.length === 0) {
+      initializeChat();
+    }
+  };
+  
+  const clearChat = () => {
+    chatBox.innerHTML = "";
+    chatHistory = [];
+    initializeChat();
+    dropdownMenu.classList.remove("show");
+  };
 
-        const closeChat = () => {
-          chatContainer.classList.remove("open");
-          chatbotLogoContainer.style.display = "flex";
-        };
+  const initializeChat = () => {
+    displayMessage(
+      "Hi there! 👋 I’m Sana, your assistant here at PHC.",
+      "bot-message"
+    );
+  };
 
-        const showWelcomeScreen = () => {
-          welcomeScreen.classList.add("active");
-          chatScreen.classList.remove("active");
-          homeBtn.classList.add("active");
-          contactNavBtn.classList.remove("active");
-        };
+  function displayMessage(message, className) {
+    const messageDiv = document.createElement("div");
+    messageDiv.classList.add("message", className);
+    messageDiv.innerHTML = message; 
+    chatBox.appendChild(messageDiv);
+    chatBox.scrollTop = chatBox.scrollHeight;
+  }
 
-        const showChatScreen = () => {
-          welcomeScreen.classList.remove("active");
-          chatScreen.classList.add("active");
-          homeBtn.classList.remove("active");
-          contactNavBtn.classList.add("active");
-          if (chatBox.children.length === 0) {
-            initializeChat();
-          }
-        };
+  async function sendMessage() {
+    const messageText = userInput.value.trim();
+    if (messageText === "") return;
 
-        const initializeChat = () => {
-          displayMessage(
-            "Sana",
-            "Hi there! 👋 I’m Sana, your assistant here at PHC.",
-            "bot-message"
-          );
-        };
+    displayMessage(messageText, "user-message");
+    chatHistory.push(`User: ${messageText}`);
+    userInput.value = "";
+    typingIndicator.style.display = "flex";
 
-        const clearChat = () => {
-          chatBox.innerHTML = "";
-          chatHistory = [];
-          initializeChat();
-          dropdownMenu.classList.remove("show");
-        };
-        chatbotLogoContainer.addEventListener("click", openChat);
-        minimizeWelcome.addEventListener("click", closeChat);
-        minimizeChat.addEventListener("click", closeChat);
-
-        contactBtn.addEventListener("click", showChatScreen);
-        contactNavBtn.addEventListener("click", showChatScreen);
-
-        backBtn.addEventListener("click", showWelcomeScreen);
-        homeBtn.addEventListener("click", showWelcomeScreen);
-
-        dotsBtn.addEventListener("click", () => {
-          dropdownMenu.classList.toggle("show");
-        });
-
-        clearChatBtn.addEventListener("click", clearChat);
-
-        window.addEventListener("click", (event) => {
-          if (!event.target.matches("#dots-btn")) {
-            if (dropdownMenu.classList.contains("show")) {
-              dropdownMenu.classList.remove("show");
-            }
-          }
-        });
-
-        sendBtn.addEventListener("click", sendMessage);
-        userInput.addEventListener("keypress", (event) => {
-          if (event.key === "Enter") sendMessage();
-        });
-
-        function displayMessage(sender, message, className) {
-          const messageDiv = document.createElement("div");
-          messageDiv.classList.add("message", className);
-
-          if (className === "bot-message" || className === "user-message") {
-            messageDiv.innerHTML = message;
-          } else {
-            messageDiv.innerHTML = `<strong>${sender}:</strong> ${message}`;
-          }
-
-          chatBox.appendChild(messageDiv);
-          chatBox.scrollTop = chatBox.scrollHeight;
-          return messageDiv;
-        }
-
-        async function sendMessage() {
-          const message = userInput.value.trim();
-          if (message === "") return;
-
-          displayMessage("You", message, "user-message");
-          chatHistory.push(`User: ${message}`);
-          userInput.value = "";
-          typingIndicator.style.display = "flex";
-
-          const botMessageDiv = document.createElement("div");
-          botMessageDiv.classList.add("message", "bot-message");
-          botMessageDiv.innerHTML = ``;
-          chatBox.appendChild(botMessageDiv);
-
-          let botResponseText = "";
-
-          try {
-            const response = await fetch(
-              "https://sana.emrchains.com/api3/chat",
-              {
-                method: "POST",
-                headers: {
-                  "Content-Type": "application/json",
-                  Accept: "text/plain; charset=utf-8",
-                },
-                body: JSON.stringify({
-                  query: message,
-                  unique_id: "PHC-ISB-2025",
-                  end_user_id: endUserId,
-                  history: chatHistory,
-                }),
-              }
-            );
-
-            if (!response.body)
-              throw new Error("Response body is not readable.");
-
-            const reader = response.body.getReader();
-            const decoder = new TextDecoder("utf-8");
-
-            while (true) {
-              const { value, done } = await reader.read();
-              if (done) break;
-
-              botResponseText += decoder.decode(value, { stream: true });
-              botMessageDiv.innerHTML = botResponseText;
-              chatBox.scrollTop = chatBox.scrollHeight;
-            }
-
-            chatHistory.push(`Assistant: ${botResponseText}`);
-          } catch (error) {
-            console.error("Error:", error);
-            botMessageDiv.innerHTML =
-              "Error: Unable to get a response. Please try again.";
-          } finally {
-            typingIndicator.style.display = "none";
-            chatBox.scrollTop = chatBox.scrollHeight;
-          }
-        }
-      });
+    const botMessageDiv = document.createElement("div");
+    botMessageDiv.classList.add("message", "bot-message");
+    chatBox.appendChild(botMessageDiv);
+    chatBox.scrollTop = chatBox.scrollHeight;
     
+    let botResponseText = "";
+
+    try {
+      const response = await fetch("https://sana.emrchains.com/api3/chat", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+          Accept: "text/plain; charset=utf-8",
+        },
+        body: JSON.stringify({
+          query: messageText,
+          unique_id: "PHC-ISB-2025",
+          end_user_id: endUserId,
+          history: chatHistory.slice(-10), 
+        }),
+      });
+
+      if (!response.ok || !response.body) {
+        throw new Error(`HTTP error! status: ${response.status}`);
+      }
+
+      const reader = response.body.getReader();
+      const decoder = new TextDecoder("utf-8");
+
+      while (true) {
+        const { value, done } = await reader.read();
+        if (done) break;
+        botResponseText += decoder.decode(value, { stream: true });
+        botMessageDiv.innerHTML = botResponseText; 
+        chatBox.scrollTop = chatBox.scrollHeight;
+      }
+
+      chatHistory.push(`Assistant: ${botResponseText}`);
+    } catch (error) {
+      console.error("Chat API Error:", error);
+      botMessageDiv.innerHTML = "Error: Unable to get a response. Please try again.";
+    } finally {
+      typingIndicator.style.display = "none";
+      chatBox.scrollTop = chatBox.scrollHeight;
+    }
+  }
+  
+  chatbotLogoContainer.addEventListener("click", openChat);
+  minimizeWelcome.addEventListener("click", closeChat);
+  minimizeChat.addEventListener("click", closeChat);
+  contactBtn.addEventListener("click", showChatScreen);
+  contactNavBtn.addEventListener("click", showChatScreen);
+  backBtn.addEventListener("click", showWelcomeScreen);
+  homeBtn.addEventListener("click", showWelcomeScreen);
+  clearChatBtn.addEventListener("click", clearChat);
+  sendBtn.addEventListener("click", sendMessage);
+  userInput.addEventListener("keypress", (event) => {
+    if (event.key === "Enter") sendMessage();
+  });
+
+  dotsBtn.addEventListener("click", (e) => {
+      e.stopPropagation();
+      dropdownMenu.classList.toggle("show");
+  });
+
+  window.addEventListener("click", () => {
+    if (dropdownMenu.classList.contains("show")) {
+      dropdownMenu.classList.remove("show");
+    }
+  });
+}
