@@ -24,7 +24,6 @@
   </head>
 
   <body>
-
     <header>
       <nav class="container">
         <div class="logo">Sana AI</div>
@@ -111,58 +110,92 @@
       <audio id="sana-audio" src="sana-ai.mp4"></audio>
 
       <div class="chatbot-logo-container" id="chatbot-logo-container">
-      <img
-        src=""
-        alt="EMRChains Logo"
-      />
-      <div class="dots-overlay">
-        <span></span>
-        <span></span>
-        <span></span>
-      </div>
-    </div>
-
-    <div class="chat-container" id="chat-container">
-      <div class="view-screen active" id="welcome-screen">
-        <div class="welcome-header">
-          <i class="fas fa-minus" id="minimize-welcome"></i>
+        <img src="images/emr-chains-logo.png" alt="EMRChains Logo" />
+        <div class="dots-overlay">
+          <span></span>
+          <span></span>
+          <span></span>
         </div>
-        <div class="welcome-body">
-          <img
-            src=""
-            alt="Sana AI Logo"
-            class="sana-logo"
-          />
+      </div>
 
-          <div class="welcome-card">
+      <div class="chat-container" id="chat-container">
+        <div class="view-screen active" id="welcome-screen">
+          <div class="welcome-header">
+            <i class="fas fa-minus" id="minimize-welcome"></i>
+          </div>
+          <div class="welcome-body">
             <img
-              src=""
-              alt="Sana AI"
-              class="sana-avatar"
+              src="images/sana-ai.png"
+              alt="Sana AI Logo"
+              class="sana-logo"
             />
-            <div class="card-text">
-              <strong>Sana AI</strong>
-              <p>Let me know if you have any questions!</p>
+
+            <div class="welcome-card">
+              <img src="images/sana-ai.png" alt="Sana AI" class="sana-avatar" />
+              <div class="card-text">
+                <strong>Sana AI</strong>
+                <p>Let me know if you have any questions!</p>
+              </div>
+            </div>
+            <button class="chat-with-us-btn" id="contact-btn">
+              Chat with us
+            </button>
+          </div>
+          <div class="main-footer">
+            <div class="footer-nav">
+              <div class="nav-item active" id="home-btn">
+                <i class="fas fa-home"></i>
+                <span>Home</span>
+              </div>
+              <div class="nav-item" id="contact-nav-btn">
+                <i class="fas fa-comment-dots"></i>
+                <span>Contact</span>
+              </div>
+            </div>
+            <div class="powered-by">
+              <img
+                src="images/sana-ai.png"
+                alt="sana-icon"
+                class="powered-by-icon"
+              />
+              Powered by
+              <a href="https://emrchains.com" target="_blank">EMRChains</a>
             </div>
           </div>
-          <button class="chat-with-us-btn" id="contact-btn">
-            Chat with us
-          </button>
         </div>
-        <div class="main-footer">
-          <div class="footer-nav">
-            <div class="nav-item active" id="home-btn">
-              <i class="fas fa-home"></i>
-              <span>Home</span>
+
+        <div class="view-screen" id="chat-screen">
+          <div class="chat-header">
+            <i class="fas fa-arrow-left" id="back-btn"></i>
+            <div class="header-title">
+              <img src="images/sana-ai.png" alt="Sana AI" class="sana-avatar" />
+              <strong>Sana AI</strong>
             </div>
-            <div class="nav-item" id="contact-nav-btn">
-              <i class="fas fa-comment-dots"></i>
-              <span>Contact</span>
+            <div class="header-icons">
+              <div class="dropdown">
+                <i class="fas fa-ellipsis-v" id="dots-btn"></i>
+                <div class="dropdown-content" id="dropdown-menu">
+                  <a href="#" id="clear-chat-btn">Clear chat</a>
+                </div>
+              </div>
+              <i class="fas fa-minus" id="minimize-chat"></i>
             </div>
+          </div>
+          <div class="chat-box" id="chat-box"></div>
+          <div class="typing-indicator" id="typing-indicator">
+            <span></span><span></span><span></span>
+          </div>
+          <div class="input-container">
+            <input
+              type="text"
+              id="user-input"
+              placeholder="Write a message..."
+            />
+            <button id="send-btn"><i class="fas fa-paper-plane"></i></button>
           </div>
           <div class="powered-by">
             <img
-              src=""
+              src="images/sana-ai.png"
               alt="sana-icon"
               class="powered-by-icon"
             />
@@ -171,47 +204,6 @@
           </div>
         </div>
       </div>
-
-      <div class="view-screen" id="chat-screen">
-        <div class="chat-header">
-          <i class="fas fa-arrow-left" id="back-btn"></i>
-          <div class="header-title">
-            <img
-              src=""
-              alt="Sana AI"
-              class="sana-avatar"
-            />
-            <strong>Sana AI</strong>
-          </div>
-          <div class="header-icons">
-            <div class="dropdown">
-              <i class="fas fa-ellipsis-v" id="dots-btn"></i>
-              <div class="dropdown-content" id="dropdown-menu">
-                <a href="#" id="clear-chat-btn">Clear chat</a>
-              </div>
-            </div>
-            <i class="fas fa-minus" id="minimize-chat"></i>
-          </div>
-        </div>
-        <div class="chat-box" id="chat-box"></div>
-        <div class="typing-indicator" id="typing-indicator">
-          <span></span><span></span><span></span>
-        </div>
-        <div class="input-container">
-          <input type="text" id="user-input" placeholder="Write a message..." />
-          <button id="send-btn"><i class="fas fa-paper-plane"></i></button>
-        </div>
-        <div class="powered-by">
-          <img
-            src=""
-            alt="sana-icon"
-            class="powered-by-icon"
-          />
-          Powered by
-          <a href="https://emrchains.com" target="_blank">EMRChains</a>
-        </div>
-      </div>
-    </div>
 
       <section id="features" class="content-section">
         <div class="container">
