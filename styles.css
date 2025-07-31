@@ -797,7 +797,7 @@ nav .logo {
 
 footer {
   background-color: var(--primary-color);
-  color: #ffffff;
+  color: #e2e8f0;
   padding: 60px 0 20px 0;
 }
 
@@ -812,6 +812,11 @@ footer {
 
 .footer-column {
   padding: 0 1rem;
+}
+
+.footer-column.footer-about p {
+  align-items: flex-start;
+  color: #e2e8f0;
 }
 
 .footer-column h4 {
@@ -840,12 +845,17 @@ footer {
 
 .footer-column p i {
   margin-top: 5px;
+  color: var(--bg-white);
 }
 
 .footer-column a {
   color: #e2e8f0;
   transition: var(--transition-fast);
   display: inline;
+}
+
+.footer-column ul li {
+  margin-bottom: 0.5rem;
 }
 
 .footer-column ul a {
@@ -858,12 +868,26 @@ footer {
 }
 
 .footer-logo {
-  display: block;
+  display: flex;
+  align-items: center;
+  gap: 0.8rem;
   margin-bottom: 1rem;
 }
 
+.footer-logo-img {
+  height: 50px;
+  width: 50px;
+  border-radius: 50%;
+  background-color: #fff;
+  object-fit: cover;
+}
+
+.logo-text {
+  line-height: 1;
+}
+
 .logo-text-main {
-  font-size: 2rem;
+  font-size: 1.6rem;
   font-weight: 700;
   display: block;
   color: #fff;
@@ -1267,11 +1291,6 @@ footer {
 
 @media (max-width: 576px) {
 
-  /* .chatbot-logo-container img {
-    width: 30px;
-    height: auto;
-  } */
-
   .container {
     padding: 0 0.8rem;
   }
@@ -1409,6 +1428,11 @@ footer {
 
   .footer-column h4 {
     font-size: 0.95rem;
+  }
+
+  .footer-logo-img {
+    height: 40px;
+    width: 40px;
   }
 
   .logo-text-main {
