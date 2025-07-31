@@ -6,7 +6,6 @@ document.addEventListener("DOMContentLoaded", () => {
   initFaqAccordion();
   initDemoModal();
   initHeroParallax();
-
   initChatbot();
 });
 
@@ -322,7 +321,7 @@ function initChatbot() {
 
   const initializeChat = () => {
     displayMessage(
-      "Hi there! 👋 I’m Sana, your assistant here at PHC.",
+      "Hi there! 👋 I’m Sana, your AI assistant from EMRChains, here to support you!",
       "bot-message"
     );
   };
