@@ -1493,6 +1493,7 @@ footer {
 
 .chatbot-logo-container:hover {
   transform: scale(1.1);
+  animation-play-state: paused; 
 }
 
  .chatbot-logo-container img {
