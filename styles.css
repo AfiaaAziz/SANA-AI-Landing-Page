@@ -1492,12 +1492,12 @@ footer {
   transform: scale(1.1);
 }
 
-.chatbot-logo-container img {
-  width: 38px;
-  height: 38px;
-  border-radius: 50%;
-  transition: filter 0.3s ease;
-}
+ .chatbot-logo-container img {
+        width: 38px;
+        height: 38px;
+        border-radius: 50%;
+        transition: filter 0.3s ease;
+      }
 
 .dots-overlay {
   position: absolute;
