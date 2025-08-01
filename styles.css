@@ -1477,7 +1477,7 @@ footer {
   right: 20px;
   width: 60px;
   height: 60px;
-  background-color: var(--primary-green);
+  background-color: var(--bg-white);
   border-radius: 50%;
   box-shadow: 0 10px 20px rgba(16, 185, 129, 0.2),
     0 3px 8px rgba(0, 0, 0, 0.1);
