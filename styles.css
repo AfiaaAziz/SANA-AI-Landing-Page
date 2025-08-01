@@ -1160,6 +1160,8 @@ footer {
 
   .hero-container {
     flex-direction: row;
+        padding-right: 100px;
+
   }
 
   .hero-content {
