@@ -189,9 +189,8 @@ function initDemoModal() {
   const errorMessage = document.getElementById("form-error");
   const dateInput = document.getElementById("date");
 
-  const googleScriptURL =
-    "https://script.google.com/macros/s/AKfycby0_9PMfhKJnlvUutKO7ugr0Vi5cwCPxetWuq5omwUWvymH-p2hEhcUVZwPw95dl_ED/exec";
-  const emailApiURL = "http://35.200.238.100:8004/send-confirmation";
+  const googleScriptURL = config.googleScriptURL;
+const emailApiURL = config.emailApiURL;
 
   if (dateInput) {
     dateInput.min = new Date().toISOString().split("T")[0];
@@ -351,7 +350,7 @@ function initChatbot() {
     let botResponseText = "";
 
     try {
-      const response = await fetch("https://sana.emrchains.com/api3/chat", {
+      const response = await fetch(config.chatApiURL, {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
