@@ -1,685 +1,766 @@
 <!DOCTYPE html>
 <html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Sana AI - Your Personal Health Assistant</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+    />
+    <link rel="stylesheet" href="styles.css" />
+  </head>
 
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Sana AI - Your Personal Health Assistant</title>
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" />
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
-  <link rel="stylesheet" href="styles.css" />
-</head>
-
-<body>
-  <header>
-    <nav class="container">
-      <div class="logo">Sana AI</div>
-      <ul class="nav-links">
-        <li><a href="#home">Home</a></li>
-        <li><a href="#features">Features</a></li>
-        <li><a href="#about">About</a></li>
-        <li><a href="#reviews">Reviews</a></li>
-        <li><a href="#cta">Book a Demo</a></li>
-      </ul>
-      <div class="hamburger-menu">
-        <i class="fas fa-bars"></i>
-      </div>
-    </nav>
-  </header>
-
-  <main>
-    <section id="home" class="hero">
-      <div class="hero-container">
-        <div class="hero-content">
-          <h1>
-            Your 24/7 Health Assistant,<span style="color: #23ad55">
-              Reinvented</span>
-          </h1>
-
-          <p>Guiding every patient with clarity, care, and AI.</p>
+  <body>
+    <header>
+      <nav class="container">
+        <div class="logo">Sana AI</div>
+        <ul class="nav-links">
+          <li><a href="#home">Home</a></li>
+          <li><a href="#features">Features</a></li>
+          <li><a href="#about">About</a></li>
+          <li><a href="#reviews">Reviews</a></li>
+          <li><a href="#cta">Book a Demo</a></li>
+        </ul>
+        <div class="hamburger-menu">
+          <i class="fas fa-bars"></i>
         </div>
-        <div class="hero-image">
-          <div class="mobile-mockup">
-            <div class="mockup-inner-frame">
-              <div class="mockup-top-bar">
-                <span class="time">10:30</span>
-                <div class="island"></div>
-              </div>
-              <div class="mockup-screen active" id="call-screen">
-                <div class="sana-logo">
-                  <img src="images/logo.jpg" alt="Sana AI Icon" />
+      </nav>
+    </header>
+
+    <main>
+      <section id="home" class="hero">
+        <div class="hero-container">
+          <div class="hero-content">
+            <h1>
+              Your 24/7 Health Assistant,<span style="color: #23ad55">
+                Reinvented</span
+              >
+            </h1>
+
+            <p>Guiding every patient with clarity, care, and AI.</p>
+          </div>
+          <div class="hero-image">
+            <div class="mobile-mockup">
+              <div class="mockup-inner-frame">
+                <div class="mockup-top-bar">
+                  <span class="time">10:30</span>
+                  <div class="island"></div>
                 </div>
-                <h2 class="caller-name">Sana AI</h2>
-                <p class="call-status">incoming call...</p>
-                <div class="answer-call-button" id="answer-button">
-                  <i class="fas fa-phone"></i>
+                <div class="mockup-screen active" id="call-screen">
+                  <div class="sana-logo">
+                    <img src="images/logo.jpg" alt="Sana AI Icon" />
+                  </div>
+                  <h2 class="caller-name">Sana AI</h2>
+                  <p class="call-status">incoming call...</p>
+                  <div class="answer-call-button" id="answer-button">
+                    <i class="fas fa-phone"></i>
+                  </div>
+                  <p class="swipe-text">Swipe up to answer</p>
                 </div>
-                <p class="swipe-text">Swipe up to answer</p>
-              </div>
-              <div class="mockup-screen" id="play-screen">
-                <span class="connection-status">Connected</span>
-                <div class="sana-logo">
-                  <img src="images/logo.jpg" alt="Sana AI Icon" />
+                <div class="mockup-screen" id="play-screen">
+                  <span class="connection-status">Connected</span>
+                  <div class="sana-logo">
+                    <img src="images/logo.jpg" alt="Sana AI Icon" />
+                  </div>
+                  <h2 class="caller-name">Sana AI</h2>
+                  <p class="call-status">Ready to play demo message</p>
+                  <div class="play-button" id="play-button">
+                    <i class="fas fa-play"></i>
+                  </div>
                 </div>
-                <h2 class="caller-name">Sana AI</h2>
-                <p class="call-status">Ready to play demo message</p>
-                <div class="play-button" id="play-button">
-                  <i class="fas fa-play"></i>
-                </div>
-              </div>
-              <div class="mockup-screen" id="playing-screen">
-                <div class="timer">
-                  <span id="current-time">0:00</span> /
-                  <span id="total-time">0:12</span>
-                </div>
-                <div class="sana-logo">
-                  <img src="images/logo.jpg" alt="Sana AI Icon" />
-                </div>
-                <h2 class="caller-name">Sana AI</h2>
-                <p class="call-status">Playing demo message</p>
-                <div class="waveform">
-                  <div class="waveform-bar"></div>
-                  <div class="waveform-bar"></div>
-                  <div class="waveform-bar"></div>
-                  <div class="waveform-bar"></div>
-                  <div class="waveform-bar"></div>
-                  <div class="waveform-bar"></div>
-                  <div class="waveform-bar"></div>
-                  <div class="waveform-bar"></div>
-                  <div class="waveform-bar"></div>
-                  <div class="waveform-bar"></div>
+                <div class="mockup-screen" id="playing-screen">
+                  <div class="timer">
+                    <span id="current-time">0:00</span> /
+                    <span id="total-time">0:12</span>
+                  </div>
+                  <div class="sana-logo">
+                    <img src="images/logo.jpg" alt="Sana AI Icon" />
+                  </div>
+                  <h2 class="caller-name">Sana AI</h2>
+                  <p class="call-status">Playing demo message</p>
+                  <div class="waveform">
+                    <div class="waveform-bar"></div>
+                    <div class="waveform-bar"></div>
+                    <div class="waveform-bar"></div>
+                    <div class="waveform-bar"></div>
+                    <div class="waveform-bar"></div>
+                    <div class="waveform-bar"></div>
+                    <div class="waveform-bar"></div>
+                    <div class="waveform-bar"></div>
+                    <div class="waveform-bar"></div>
+                    <div class="waveform-bar"></div>
+                  </div>
                 </div>
               </div>
             </div>
           </div>
         </div>
-      </div>
-    </section>
-    <audio id="sana-audio" src="sana-ai.mp4"></audio>
+      </section>
+      <audio id="sana-audio" src="sana-ai.mp4"></audio>
 
-    <section id="features" class="content-section">
-      <div class="container">
-        <h2 class="section-title text-center">
-          Intelligent Healthcare <span style="color: #23ad55">Solutions</span>
-        </h2>
+      <section id="features" class="content-section">
+        <div class="container">
+          <h2 class="section-title text-center">
+            Intelligent Healthcare <span style="color: #23ad55">Solutions</span>
+          </h2>
 
-        <p class="section-subtitle">
-          Discover how Sana AI revolutionizes patient care with cutting-edge
-          technology and seamless integration capabilities.
-        </p>
-        <div class="features-grid">
-          <div class="feature-card">
-            <div class="feature-number">1</div>
-            <h3>Multi-Channel Access</h3>
-            <p>
-              Connect with patients via voice, text, or web—their choice.
-              Seamlessly handle appointment requests across all channels.
-            </p>
-          </div>
-          <div class="feature-card">
-            <div class="feature-number">2</div>
-            <h3>Multilingual Supports</h3>
-            <p>
-              Choose a language, pick or clone your voice, and connect to your
-              knowledge base.
-            </p>
-          </div>
-          <div class="feature-card">
-            <div class="feature-number">3</div>
-            <h3>Intelligent Integration</h3>
-            <p>
-              Integrate Voice AI with your tech stack through 200+
-              integrations and APIs.
-            </p>
-          </div>
-          <div class="feature-card">
-            <div class="feature-number">4</div>
-            <h3>Enterprise Security</h3>
-            <p>
-              SOC 2 Type II and HIPAA compliant infrastructure with BAA
-              support. Your patient data remains protected and private.
-            </p>
-          </div>
-          <div class="feature-card">
-            <div class="feature-number">5</div>
-            <h3>Staff Augmentation</h3>
-            <p>
-              Reduce front-desk workload while improving patient experience
-              through 24/7 self-service appointment management.
-            </p>
-          </div>
-          <div class="feature-card">
-            <div class="feature-number">6</div>
-            <h3>Conversational AI</h3>
-            <p>
-              Our conversational AI is empathy-driven—designed to understand
-              patient emotions, respond with compassion, and deliver accurate
-              support in real time.
-            </p>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <section id="get-started" class="content-section bg-light">
-      <div class="container">
-        <h2 class="section-title">
-          Three Simple Steps to
-          <span style="color: #23ad55">Transform</span> Your Practice
-        </h2>
-        <p class="section-subtitle">
-          Get up and running with Sana AI in just a few simple steps. Our team
-          will guide you through the entire process.
-        </p>
-        <div class="steps-grid">
-          <div class="step-card">
-            <div class="step-card-icon-area" style="--bg-color: #f3e5f5">
-              <i class="fas fa-user-plus step-icon"></i>
-            </div>
-            <div class="step-card-content">
-              <h3>Tell us about your Details</h3>
+          <p class="section-subtitle">
+            Discover how Sana AI revolutionizes patient care with cutting-edge
+            technology and seamless integration capabilities.
+          </p>
+          <div class="features-grid">
+            <div class="feature-card">
+              <div class="feature-number">1</div>
+              <h3>Multi-Channel Access</h3>
               <p>
-                Share your details and scheduling needs in a quick
-                consultation.
+                Connect with patients via voice, text, or web—their choice.
+                Seamlessly handle appointment requests across all channels.
               </p>
             </div>
-          </div>
-          <div class="step-card">
-            <div class="step-card-icon-area" style="--bg-color: #e3f2fd">
-              <i class="fas fa-phone step-icon"></i>
-            </div>
-            <div class="step-card-content">
-              <h3>Connect your systems</h3>
+            <div class="feature-card">
+              <div class="feature-number">2</div>
+              <h3>Multilingual Supports</h3>
               <p>
-                Our team will seamlessly integrate with your calendars and
-                EHR.
+                Choose a language, pick or clone your voice, and connect to your
+                knowledge base.
               </p>
             </div>
-          </div>
-          <div class="step-card">
-            <div class="step-card-icon-area" style="--bg-color: #e8f5e9">
-              <i class="fas fa-bolt step-icon"></i>
-            </div>
-            <div class="step-card-content">
-              <h3>Go live with AI assistants</h3>
+            <div class="feature-card">
+              <div class="feature-number">3</div>
+              <h3>Intelligent Integration</h3>
               <p>
-                Watch as your phone lines clear up and appointment books fill
-                up.
+                Integrate Voice AI with your tech stack through 200+
+                integrations and APIs.
+              </p>
+            </div>
+            <div class="feature-card">
+              <div class="feature-number">4</div>
+              <h3>Enterprise Security</h3>
+              <p>
+                SOC 2 Type II and HIPAA compliant infrastructure with BAA
+                support. Your patient data remains protected and private.
+              </p>
+            </div>
+            <div class="feature-card">
+              <div class="feature-number">5</div>
+              <h3>Staff Augmentation</h3>
+              <p>
+                Reduce front-desk workload while improving patient experience
+                through 24/7 self-service appointment management.
+              </p>
+            </div>
+            <div class="feature-card">
+              <div class="feature-number">6</div>
+              <h3>Conversational AI</h3>
+              <p>
+                Our conversational AI is empathy-driven—designed to understand
+                patient emotions, respond with compassion, and deliver accurate
+                support in real time.
               </p>
             </div>
           </div>
         </div>
-      </div>
-    </section>
+      </section>
 
-    <section id="results" class="content-section">
-      <div class="container">
-        <h2 class="section-title">
-          Proven <span style="color: #23ad55">Impact</span> on Healthcare
-        </h2>
-        <p class="section-subtitle">
-          See the measurable results that healthcare providers achieve with
-          Sana AI's intelligent automation platform.
-        </p>
-        <div class="results-grid">
-          <div class="result-card">
-            <span class="stat-number">30%</span>
-            <p class="stat-description">Reduction in no-shows</p>
-          </div>
-          <div class="result-card">
-            <span class="stat-number">15+</span>
-            <p class="stat-description">Hours saved weekly</p>
-          </div>
-          <div class="result-card">
-            <span class="stat-number">97%</span>
-            <p class="stat-description">Patient satisfaction</p>
-          </div>
-          <div class="result-card">
-            <span class="stat-number">24/7</span>
-            <p class="stat-description">Availability</p>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <section id="about" class="content-section bg-light">
-      <div class="container">
-        <div class="about-card">
-          <p class="section-tag">ABOUT US</p>
+      <section id="get-started" class="content-section bg-light">
+        <div class="container">
           <h2 class="section-title">
-            The Future of <span style="color: #23ad55">Communication</span>
+            Three Simple Steps to
+            <span style="color: #23ad55">Transform</span> Your Practice
           </h2>
           <p class="section-subtitle">
-            At Sana AI, we're on a mission to transform healthcare
-            communication through intelligent automation, ensuring every
-            patient gets immediate access to care. Our cutting-edge AI
-            technology bridges the gap between patients and healthcare
-            providers, creating seamless, empathetic, and efficient
-            interactions.
+            Get up and running with Sana AI in just a few simple steps. Our team
+            will guide you through the entire process.
           </p>
-          <div class="social-links">
-            <a href="https://www.facebook.com/SanaAIbyemrchains/" target="_blank" aria-label="Facebook"><i
-                class="fab fa-facebook-f"></i></a>
-            <a href="https://www.instagram.com/sanaaibyemrchains/" target="_blank" aria-label="Instagram"><i
-                class="fab fa-instagram"></i></a>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <section id="clients" class="content-section">
-      <div class="container">
-        <h2 class="section-title text-center">
-          Leading Healthcare <span style="color: #23ad55">Providers</span>
-        </h2>
-        <p class="section-subtitle">
-          Join healthcare providers who trust Sana AI to enhance their patient
-          communication and streamline operations.
-        </p>
-        <div class="client-logos-container">
-          <div class="client-logos-wrapper">
-            <div class="client-logo">
-              <a href="https://www.maroof.com.pk/" target="_blank">
-                <img src="images/maroof.png" alt="Maroof International Hospital Logo" />
-              </a>
+          <div class="steps-grid">
+            <div class="step-card">
+              <div class="step-card-icon-area" style="--bg-color: #f3e5f5">
+                <i class="fas fa-user-plus step-icon"></i>
+              </div>
+              <div class="step-card-content">
+                <h3>Tell us about your Details</h3>
+                <p>
+                  Share your details and scheduling needs in a quick
+                  consultation.
+                </p>
+              </div>
             </div>
-            <div class="client-logo">
-              <a href="https://curadors.com/" target="_blank">
-                <img src="images/curadorsd.png" alt="Curadors Surgical Care Logo" />
-              </a>
+            <div class="step-card">
+              <div class="step-card-icon-area" style="--bg-color: #e3f2fd">
+                <i class="fas fa-phone step-icon"></i>
+              </div>
+              <div class="step-card-content">
+                <h3>Connect your systems</h3>
+                <p>
+                  Our team will seamlessly integrate with your calendars and
+                  EHR.
+                </p>
+              </div>
             </div>
-            <div class="client-logo">
-              <a href="https://www.schoolandcollegelistings.com/PK/Unknown/108918551636762/Fatima-Abid-Institute-Of-Medical-Sciences#google_vignette"
-                target="_blank">
-                <img src="images/faims.png" alt="Fatima Abid Institute of Medical Sciences" />
-              </a>
-            </div>
-            <div class="client-logo">
-              <a href="https://iici.pk/" target="_blank">
-                <img src="images/iici.png" alt="Infertility & IVF Clinic Islamabad" class="logo-requires-inversion" />
-              </a>
-            </div>
-            <div class="client-logo">
-              <a href="https://abidhospital.com.pk/" target="_blank">
-                <img src="images/abid.png" alt="Abid Hospital" />
-              </a>
-            </div>
-            <div class="client-logo">
-              <a href="https://cdc.net.pk/" target="_blank">
-                <img src="images/cdc.png" alt="Capital Diagnostic Centre" />
-              </a>
-            </div>
-            <div class="client-logo">
-              <a href="https://jjasthetics.com/" target="_blank">
-                <img src="images/jjaesthetics.png" alt="JJ Aesthetics" />
-              </a>
-            </div>
-            <div class="client-logo">
-              <a href="https://diceinstitute.com/" target="_blank">
-                <img src="images/dice.png" alt="Dice Dental" />
-              </a>
-            </div>
-
-            <div class="client-logo">
-              <a href="https://www.maroof.com.pk/" target="_blank">
-                <img src="images/maroof.png" alt="Maroof International Hospital Logo" />
-              </a>
-            </div>
-            <div class="client-logo">
-              <a href="https://curadors.com/" target="_blank">
-                <img src="images/curadorsd.png" alt="Curadors Surgical Care Logo" />
-              </a>
-            </div>
-            <div class="client-logo">
-              <a href="https://www.schoolandcollegelistings.com/PK/Unknown/108918551636762/Fatima-Abid-Institute-Of-Medical-Sciences#google_vignette"
-                target="_blank">
-                <img src="images/faims.png" alt="Fatima Abid Institute of Medical Sciences" />
-              </a>
-            </div>
-            <div class="client-logo">
-              <a href="https://iici.pk/" target="_blank">
-                <img src="images/iici.png" alt="Infertility & IVF Clinic Islamabad" class="logo-requires-inversion" />
-              </a>
-            </div>
-            <div class="client-logo">
-              <a href="https://abidhospital.com.pk/" target="_blank">
-                <img src="images/abid.png" alt="Abid Hospital" />
-              </a>
-            </div>
-            <div class="client-logo">
-              <a href="https://cdc.net.pk/" target="_blank">
-                <img src="images/cdc.png" alt="Capital Diagnostic Centre" />
-              </a>
-            </div>
-            <div class="client-logo">
-              <a href="https://jjasthetics.com/" target="_blank">
-                <img src="images/jjaesthetics.png" alt="JJ Aesthetics" />
-              </a>
-            </div>
-            <div class="client-logo">
-              <a href="https://diceinstitute.com/" target="_blank">
-                <img src="images/dice.png" alt="Dice Dental" />
-              </a>
+            <div class="step-card">
+              <div class="step-card-icon-area" style="--bg-color: #e8f5e9">
+                <i class="fas fa-bolt step-icon"></i>
+              </div>
+              <div class="step-card-content">
+                <h3>Go live with AI assistants</h3>
+                <p>
+                  Watch as your phone lines clear up and appointment books fill
+                  up.
+                </p>
+              </div>
             </div>
           </div>
         </div>
-      </div>
-    </section>
+      </section>
 
-    <section id="reviews" class="content-section bg-light">
-      <div class="testimonial-slider-container">
-        <div class="testimonial-wrapper">
-          <div class="review-slide">
-            <div class="review-tag">What people are saying</div>
-            <blockquote>
-              “I booked my appointment within minutes! The AI chatbot provided
-              instant help—highly recommend!”
-            </blockquote>
-            <cite>Sarah Malik (Patient)</cite>
-          </div>
-          <div class="review-slide">
-            <div class="review-tag">What people are saying</div>
-            <blockquote>
-              “Sana helped me understand my symptoms when I was feeling
-              uncertain. The advice was clear and helpful!”
-            </blockquote>
-            <cite>Amina N. (Nairobi, Kenya)</cite>
-          </div>
-          <div class="review-slide">
-            <div class="review-tag">What people are saying</div>
-            <blockquote>
-              “A game-changer in healthcare assistance. 24/7 patient
-              engagement has never been easier.”
-            </blockquote>
-            <cite>Maroof International Hospital</cite>
+      <section id="results" class="content-section">
+        <div class="container">
+          <h2 class="section-title">
+            Proven <span style="color: #23ad55">Impact</span> on Healthcare
+          </h2>
+          <p class="section-subtitle">
+            See the measurable results that healthcare providers achieve with
+            Sana AI's intelligent automation platform.
+          </p>
+          <div class="results-grid">
+            <div class="result-card">
+              <span class="stat-number">30%</span>
+              <p class="stat-description">Reduction in no-shows</p>
+            </div>
+            <div class="result-card">
+              <span class="stat-number">15+</span>
+              <p class="stat-description">Hours saved weekly</p>
+            </div>
+            <div class="result-card">
+              <span class="stat-number">97%</span>
+              <p class="stat-description">Patient satisfaction</p>
+            </div>
+            <div class="result-card">
+              <span class="stat-number">24/7</span>
+              <p class="stat-description">Availability</p>
+            </div>
           </div>
         </div>
-        <div class="testimonial-nav">
-          <button class="nav-btn" id="prev-testimonial" aria-label="Previous testimonial">
-            <i class="fas fa-arrow-left"></i>
-          </button>
-          <button class="nav-btn" id="next-testimonial" aria-label="Next testimonial">
-            <i class="fas fa-arrow-right"></i>
-          </button>
-        </div>
-      </div>
-    </section>
+      </section>
 
-    <section id="cta" class="content-section">
-      <div class="container">
-        <p class="section-tag">DEMO</p>
-        <h2 class="section-title">Maximize Your ROI with Sana.ai</h2>
-        <p class="section-subtitle">
-          Join hundreds of providers who are seeing measurable.
-        </p>
-        <div class="cta-buttons">
-          <button class="btn btn-primary" id="open-demo-modal">
-            Book a Demo
-          </button>
-        </div>
-      </div>
-    </section>
-
-    <section id="faq" class="content-section">
-      <div class="container">
-        <div class="faq-grid">
-          <div class="faq-title-area">
-            <p class="section-tag">FAQ</p>
+      <section id="about" class="content-section bg-light">
+        <div class="container">
+          <div class="about-card">
+            <p class="section-tag">ABOUT US</p>
             <h2 class="section-title">
-              Everything You <span style="color: #23ad55">Need to Know</span>
+              The Future of <span style="color: #23ad55">Communication</span>
             </h2>
-          </div>
-          <div class="faq-accordion">
-            <div class="faq-item active">
-              <button class="faq-question">
-                <span class="faq-toggle-icon"></span>
-                <span>What is Sana AI Chatbot?</span>
-              </button>
-              <div class="faq-answer">
-                <p>
-                  Sana AI is an intelligent chatbot system for hospitals that
-                  helps patients book appointments, get reminders, and ask
-                  questions through the hospital website, WhatsApp, SMS, or
-                  phone calls in English, Roman Urdu, and Arabic.
-                </p>
-              </div>
-            </div>
-            <div class="faq-item">
-              <button class="faq-question">
-                <span class="faq-toggle-icon"></span>
-                <span>How can I book an appointment using Sana AI?</span>
-              </button>
-              <div class="faq-answer">
-                <p>
-                  You can book an appointment by typing your request on the
-                  hospital’s website, WhatsApp, or SMS, or by calling directly
-                  where the Sana AI Call Bot will guide you to book, confirm,
-                  reschedule, or cancel your appointment using natural
-                  conversation.
-                </p>
-              </div>
-            </div>
-            <div class="faq-item">
-              <button class="faq-question">
-                <span class="faq-toggle-icon"></span>
-                <span>Can I use Sana AI if I don’t know English?</span>
-              </button>
-              <div class="faq-answer">
-                <p>
-                  Yes, Sana AI supports English, Roman Urdu, and Arabic,
-                  allowing you to communicate with the chatbot or call bot in
-                  your preferred language comfortably.
-                </p>
-              </div>
-            </div>
-            <div class="faq-item">
-              <button class="faq-question">
-                <span class="faq-toggle-icon"></span>
-                <span>Is my personal and medical data safe with Sana AI?</span>
-              </button>
-              <div class="faq-answer">
-                <p>
-                  Yes, Sana AI securely stores your data using MongoDB and
-                  blockchain-based systems, ensuring your personal and medical
-                  information remains protected and private.
-                </p>
-              </div>
+            <p class="section-subtitle">
+              At Sana AI, we're on a mission to transform healthcare
+              communication through intelligent automation, ensuring every
+              patient gets immediate access to care. Our cutting-edge AI
+              technology bridges the gap between patients and healthcare
+              providers, creating seamless, empathetic, and efficient
+              interactions.
+            </p>
+            <div class="social-links">
+              <a
+                href="https://www.facebook.com/SanaAIbyemrchains/"
+                target="_blank"
+                aria-label="Facebook"
+                ><i class="fab fa-facebook-f"></i
+              ></a>
+              <a
+                href="https://www.instagram.com/sanaaibyemrchains/"
+                target="_blank"
+                aria-label="Instagram"
+                ><i class="fab fa-instagram"></i
+              ></a>
             </div>
           </div>
         </div>
-      </div>
-    </section>
-  </main>
+      </section>
 
-  <footer id="footer">
-    <div class="container">
-      <div class="footer-main">
-        <div class="footer-column footer-about">
-          <div class="footer-logo">
-            <img src="images/logo.jpg" alt="Sana AI Robot" class="footer-logo-img" />
-            <div class="logo-text">
-              <span class="logo-text-main">SANA AI</span>
+      <section id="clients" class="content-section">
+        <div class="container">
+          <h2 class="section-title text-center">
+            Leading Healthcare <span style="color: #23ad55">Providers</span>
+          </h2>
+          <p class="section-subtitle">
+            Join healthcare providers who trust Sana AI to enhance their patient
+            communication and streamline operations.
+          </p>
+          <div class="client-logos-container">
+            <div class="client-logos-wrapper">
+              <div class="client-logo">
+                <a href="https://www.maroof.com.pk/" target="_blank">
+                  <img
+                    src="images/maroof.png"
+                    alt="Maroof International Hospital Logo"
+                  />
+                </a>
+              </div>
+              <div class="client-logo">
+                <a href="https://curadors.com/" target="_blank">
+                  <img
+                    src="images/curadorsd.png"
+                    alt="Curadors Surgical Care Logo"
+                  />
+                </a>
+              </div>
+              <div class="client-logo">
+                <a
+                  href="https://www.schoolandcollegelistings.com/PK/Unknown/108918551636762/Fatima-Abid-Institute-Of-Medical-Sciences#google_vignette"
+                  target="_blank"
+                >
+                  <img
+                    src="images/faims.png"
+                    alt="Fatima Abid Institute of Medical Sciences"
+                  />
+                </a>
+              </div>
+              <div class="client-logo">
+                <a href="https://iici.pk/" target="_blank">
+                  <img
+                    src="images/iici.png"
+                    alt="Infertility & IVF Clinic Islamabad"
+                    class="logo-requires-inversion"
+                  />
+                </a>
+              </div>
+              <div class="client-logo">
+                <a href="https://abidhospital.com.pk/" target="_blank">
+                  <img src="images/abid.png" alt="Abid Hospital" />
+                </a>
+              </div>
+              <div class="client-logo">
+                <a href="https://cdc.net.pk/" target="_blank">
+                  <img src="images/cdc.png" alt="Capital Diagnostic Centre" />
+                </a>
+              </div>
+              <div class="client-logo">
+                <a href="https://jjasthetics.com/" target="_blank">
+                  <img src="images/jjaesthetics.png" alt="JJ Aesthetics" />
+                </a>
+              </div>
+              <div class="client-logo">
+                <a href="https://diceinstitute.com/" target="_blank">
+                  <img src="images/dice.png" alt="Dice Dental" />
+                </a>
+              </div>
+
+              <div class="client-logo">
+                <a href="https://www.maroof.com.pk/" target="_blank">
+                  <img
+                    src="images/maroof.png"
+                    alt="Maroof International Hospital Logo"
+                  />
+                </a>
+              </div>
+              <div class="client-logo">
+                <a href="https://curadors.com/" target="_blank">
+                  <img
+                    src="images/curadorsd.png"
+                    alt="Curadors Surgical Care Logo"
+                  />
+                </a>
+              </div>
+              <div class="client-logo">
+                <a
+                  href="https://www.schoolandcollegelistings.com/PK/Unknown/108918551636762/Fatima-Abid-Institute-Of-Medical-Sciences#google_vignette"
+                  target="_blank"
+                >
+                  <img
+                    src="images/faims.png"
+                    alt="Fatima Abid Institute of Medical Sciences"
+                  />
+                </a>
+              </div>
+              <div class="client-logo">
+                <a href="https://iici.pk/" target="_blank">
+                  <img
+                    src="images/iici.png"
+                    alt="Infertility & IVF Clinic Islamabad"
+                    class="logo-requires-inversion"
+                  />
+                </a>
+              </div>
+              <div class="client-logo">
+                <a href="https://abidhospital.com.pk/" target="_blank">
+                  <img src="images/abid.png" alt="Abid Hospital" />
+                </a>
+              </div>
+              <div class="client-logo">
+                <a href="https://cdc.net.pk/" target="_blank">
+                  <img src="images/cdc.png" alt="Capital Diagnostic Centre" />
+                </a>
+              </div>
+              <div class="client-logo">
+                <a href="https://jjasthetics.com/" target="_blank">
+                  <img src="images/jjaesthetics.png" alt="JJ Aesthetics" />
+                </a>
+              </div>
+              <div class="client-logo">
+                <a href="https://diceinstitute.com/" target="_blank">
+                  <img src="images/dice.png" alt="Dice Dental" />
+                </a>
+              </div>
             </div>
           </div>
-          <p>
-            Transforming healthcare communication through intelligent AI
-            automation. Your 24/7 health assistant, reinvented.
-          </p>
         </div>
-        <div class="footer-column">
-          <h4>Contact</h4>
-          <p>
-            <i class="fas fa-map-marker-alt"></i>
-            <span>
-              NSTP, NUST, H-12,<br />
-              Islamabad, Pakistan
-            </span>
-          </p>
-          <p>
-            <i class="fas fa-envelope"></i>
-            <a href="mailto:info@emrchains.com">info@emrchains.com</a>
-          </p>
-          <p>
-            <i class="fas fa-phone"></i>
-            <a href="tel:+923165762416">+92 316 5762416</a>
-          </p>
-        </div>
-        <div class="footer-column">
-          <h4>Follow Us</h4>
-          <div class="footer-socials">
-            <a href="https://www.instagram.com/sanaaibyemrchains/" target="_blank" class="social-icon">
-              <i class="fab fa-instagram"></i>
-            </a>
-            <a href="https://www.facebook.com/SanaAIbyemrchains/" target="_blank" class="social-icon">
-              <i class="fab fa-facebook-f"></i>
-            </a>
+      </section>
+
+      <section id="reviews" class="content-section bg-light">
+        <div class="testimonial-slider-container">
+          <div class="testimonial-wrapper">
+            <div class="review-slide">
+              <div class="review-tag">What people are saying</div>
+              <blockquote>
+                “I booked my appointment within minutes! The AI chatbot provided
+                instant help—highly recommend!”
+              </blockquote>
+              <cite>Sarah Malik (Patient)</cite>
+            </div>
+            <div class="review-slide">
+              <div class="review-tag">What people are saying</div>
+              <blockquote>
+                “Sana helped me understand my symptoms when I was feeling
+                uncertain. The advice was clear and helpful!”
+              </blockquote>
+              <cite>Amina N. (Nairobi, Kenya)</cite>
+            </div>
+            <div class="review-slide">
+              <div class="review-tag">What people are saying</div>
+              <blockquote>
+                “A game-changer in healthcare assistance. 24/7 patient
+                engagement has never been easier.”
+              </blockquote>
+              <cite>Maroof International Hospital</cite>
+            </div>
+          </div>
+          <div class="testimonial-nav">
+            <button
+              class="nav-btn"
+              id="prev-testimonial"
+              aria-label="Previous testimonial"
+            >
+              <i class="fas fa-arrow-left"></i>
+            </button>
+            <button
+              class="nav-btn"
+              id="next-testimonial"
+              aria-label="Next testimonial"
+            >
+              <i class="fas fa-arrow-right"></i>
+            </button>
           </div>
         </div>
-        <div class="footer-column">
-          <h4>Legal</h4>
-          <ul>
-            <li><a href="#">Terms & Conditions</a></li>
-            <li><a href="#">Privacy Policy</a></li>
-          </ul>
+      </section>
+
+      <section id="cta" class="content-section">
+        <div class="container">
+          <p class="section-tag">DEMO</p>
+          <h2 class="section-title">Maximize Your ROI with Sana.ai</h2>
+          <p class="section-subtitle">
+            Join hundreds of providers who are seeing measurable.
+          </p>
+          <div class="cta-buttons">
+            <button class="btn btn-primary" id="open-demo-modal">
+              Book a Demo
+            </button>
+          </div>
+        </div>
+      </section>
+
+      <section id="faq" class="content-section">
+        <div class="container">
+          <div class="faq-grid">
+            <div class="faq-title-area">
+              <p class="section-tag">FAQ</p>
+              <h2 class="section-title">
+                Everything You <span style="color: #23ad55">Need to Know</span>
+              </h2>
+            </div>
+            <div class="faq-accordion">
+              <div class="faq-item active">
+                <button class="faq-question">
+                  <span class="faq-toggle-icon"></span>
+                  <span>What is Sana AI Chatbot?</span>
+                </button>
+                <div class="faq-answer">
+                  <p>
+                    Sana AI is an intelligent chatbot system for hospitals that
+                    helps patients book appointments, get reminders, and ask
+                    questions through the hospital website, WhatsApp, SMS, or
+                    phone calls in English, Roman Urdu, and Arabic.
+                  </p>
+                </div>
+              </div>
+              <div class="faq-item">
+                <button class="faq-question">
+                  <span class="faq-toggle-icon"></span>
+                  <span>How can I book an appointment using Sana AI?</span>
+                </button>
+                <div class="faq-answer">
+                  <p>
+                    You can book an appointment by typing your request on the
+                    hospital’s website, WhatsApp, or SMS, or by calling directly
+                    where the Sana AI Call Bot will guide you to book, confirm,
+                    reschedule, or cancel your appointment using natural
+                    conversation.
+                  </p>
+                </div>
+              </div>
+              <div class="faq-item">
+                <button class="faq-question">
+                  <span class="faq-toggle-icon"></span>
+                  <span>Can I use Sana AI if I don’t know English?</span>
+                </button>
+                <div class="faq-answer">
+                  <p>
+                    Yes, Sana AI supports English, Roman Urdu, and Arabic,
+                    allowing you to communicate with the chatbot or call bot in
+                    your preferred language comfortably.
+                  </p>
+                </div>
+              </div>
+              <div class="faq-item">
+                <button class="faq-question">
+                  <span class="faq-toggle-icon"></span>
+                  <span
+                    >Is my personal and medical data safe with Sana AI?</span
+                  >
+                </button>
+                <div class="faq-answer">
+                  <p>
+                    Yes, Sana AI securely stores your data using MongoDB and
+                    blockchain-based systems, ensuring your personal and medical
+                    information remains protected and private.
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer id="footer">
+      <div class="container">
+        <div class="footer-main">
+          <div class="footer-column footer-about">
+            <div class="footer-logo">
+              <img
+                src="images/logo.jpg"
+                alt="Sana AI Robot"
+                class="footer-logo-img"
+              />
+              <div class="logo-text">
+                <span class="logo-text-main">SANA AI</span>
+              </div>
+            </div>
+            <p>
+              Transforming healthcare communication through intelligent AI
+              automation. Your 24/7 health assistant, reinvented.
+            </p>
+          </div>
+          <div class="footer-column">
+            <h4>Contact</h4>
+            <p>
+              <i class="fas fa-map-marker-alt"></i>
+              <span>
+                NSTP, NUST, H-12,<br />
+                Islamabad, Pakistan
+              </span>
+            </p>
+            <p>
+              <i class="fas fa-envelope"></i>
+              <a href="mailto:info@emrchains.com">info@emrchains.com</a>
+            </p>
+            <p>
+              <i class="fas fa-phone"></i>
+              <a href="tel:+923165762416">+92 316 5762416</a>
+            </p>
+          </div>
+          <div class="footer-column">
+            <h4>Follow Us</h4>
+            <div class="footer-socials">
+              <a
+                href="https://www.instagram.com/sanaaibyemrchains/"
+                target="_blank"
+                class="social-icon"
+              >
+                <i class="fab fa-instagram"></i>
+              </a>
+              <a
+                href="https://www.facebook.com/SanaAIbyemrchains/"
+                target="_blank"
+                class="social-icon"
+              >
+                <i class="fab fa-facebook-f"></i>
+              </a>
+            </div>
+          </div>
+          <div class="footer-column">
+            <h4>Legal</h4>
+            <ul>
+              <li><a href="#">Terms & Conditions</a></li>
+              <li><a href="#">Privacy Policy</a></li>
+            </ul>
+          </div>
+        </div>
+        <div class="footer-bottom">
+          <p>© 2025 by Sana AI. All Rights Reserved.</p>
         </div>
       </div>
-      <div class="footer-bottom">
-        <p>© 2025 by Sana AI. All Rights Reserved.</p>
+    </footer>
+
+    <div id="demo-modal" class="modal-overlay">
+      <div class="modal-content">
+        <button class="modal-close-btn">×</button>
+        <div id="form-container">
+          <h2>Request a Demo</h2>
+          <form id="demo-form">
+            <div class="form-group">
+              <label for="name">Full Name</label>
+              <input type="text" id="name" name="name" required />
+            </div>
+            <div class="form-group">
+              <label for="email">Email Address</label>
+              <input type="email" id="email" name="email" required />
+            </div>
+            <div class="form-group">
+              <label for="phone">Phone Number</label>
+              <input type="tel" id="phone" name="phone" required />
+            </div>
+            <div class="form-row">
+              <div class="form-group">
+                <label for="date">Preferred Date</label>
+                <input type="date" id="date" name="date" required />
+              </div>
+              <div class="form-group">
+                <label for="time">Preferred Time</label>
+                <input type="time" id="time" name="time" required />
+              </div>
+            </div>
+            <div class="form-group">
+              <label for="message">Message (Optional)</label>
+              <textarea
+                id="message"
+                name="message"
+                rows="4"
+                placeholder="Tell us about your needs..."
+              ></textarea>
+            </div>
+            <button type="submit" class="btn btn-primary" id="submit-btn">
+              Send Request
+            </button>
+            <p id="form-error" class="error-message" style="display: none"></p>
+          </form>
+        </div>
+        <div id="success-message" class="success-message" style="display: none">
+          <h3>Thank You!</h3>
+          <p>
+            Your request has been received. Our team will contact you within 1-2
+            working days.
+          </p>
+        </div>
       </div>
     </div>
-  </footer>
 
-  <div id="demo-modal" class="modal-overlay">
-    <div class="modal-content">
-      <button class="modal-close-btn">×</button>
-      <div id="form-container">
-        <h2>Request a Demo</h2>
-        <form id="demo-form">
-          <div class="form-group">
-            <label for="name">Full Name</label>
-            <input type="text" id="name" name="name" required />
-          </div>
-          <div class="form-group">
-            <label for="email">Email Address</label>
-            <input type="email" id="email" name="email" required />
-          </div>
-          <div class="form-group">
-            <label for="phone">Phone Number</label>
-            <input type="tel" id="phone" name="phone" required />
-          </div>
-          <div class="form-row">
-            <div class="form-group">
-              <label for="date">Preferred Date</label>
-              <input type="date" id="date" name="date" required />
-            </div>
-            <div class="form-group">
-              <label for="time">Preferred Time</label>
-              <input type="time" id="time" name="time" required />
+    <div class="chatbot-logo-container" id="chatbot-logo-container">
+      <img src="images/emr-chains-logo.png" alt="EMRChains Logo" />
+      <div class="dots-overlay">
+        <span></span>
+        <span></span>
+        <span></span>
+      </div>
+    </div>
+
+    <div class="chat-container" id="chat-container">
+      <div class="view-screen active" id="welcome-screen">
+        <div class="welcome-header">
+          <i class="fas fa-minus" id="minimize-welcome"></i>
+        </div>
+        <div class="welcome-body">
+          <img src="images/sana-ai.png" alt="Sana AI Logo" class="sana-logo" />
+          <div class="welcome-card">
+            <img src="images/sana-ai.png" alt="Sana AI" class="sana-avatar" />
+            <div class="card-text">
+              <strong>Sana AI</strong>
+              <p>Let me know if you have any questions!</p>
             </div>
           </div>
-          <div class="form-group">
-            <label for="message">Message (Optional)</label>
-            <textarea id="message" name="message" rows="4" placeholder="Tell us about your needs..."></textarea>
-          </div>
-          <button type="submit" class="btn btn-primary" id="submit-btn">
-            Send Request
+          <button class="chat-with-us-btn" id="contact-btn">
+            Chat with us
           </button>
-          <p id="form-error" class="error-message" style="display: none"></p>
-        </form>
-      </div>
-      <div id="success-message" class="success-message" style="display: none">
-        <h3>Thank You!</h3>
-        <p>
-          Your request has been received. Our team will contact you within 1-2
-          working days.
-        </p>
-      </div>
-    </div>
-  </div>
-
-  <div class="chatbot-logo-container" id="chatbot-logo-container">
-    <img src="images/emr-chains-logo.png" alt="EMRChains Logo" />
-    <div class="dots-overlay">
-      <span></span>
-      <span></span>
-      <span></span>
-    </div>
-  </div>
-
-  <div class="chat-container" id="chat-container">
-    <div class="view-screen active" id="welcome-screen">
-      <div class="welcome-header">
-        <i class="fas fa-minus" id="minimize-welcome"></i>
-      </div>
-      <div class="welcome-body">
-        <img src="images/sana-ai.png" alt="Sana AI Logo" class="sana-logo" />
-        <div class="welcome-card">
-          <img src="images/sana-ai.png" alt="Sana AI" class="sana-avatar" />
-          <div class="card-text">
-            <strong>Sana AI</strong>
-            <p>Let me know if you have any questions!</p>
+        </div>
+        <div class="main-footer">
+          <div class="footer-nav">
+            <div class="nav-item active" id="home-btn">
+              <i class="fas fa-home"></i>
+              <span>Home</span>
+            </div>
+            <div class="nav-item" id="contact-nav-btn">
+              <i class="fas fa-comment-dots"></i>
+              <span>Contact</span>
+            </div>
+          </div>
+          <div class="powered-by">
+            <img
+              src="images/sana-ai.png"
+              alt="sana-icon"
+              class="powered-by-icon"
+            />
+            Powered by
+            <a href="https://emrchains.com" target="_blank">EMRChains</a>
           </div>
         </div>
-        <button class="chat-with-us-btn" id="contact-btn">
-          Chat with us
-        </button>
       </div>
-      <div class="main-footer">
-        <div class="footer-nav">
-          <div class="nav-item active" id="home-btn">
-            <i class="fas fa-home"></i>
-            <span>Home</span>
+
+      <div class="view-screen" id="chat-screen">
+        <div class="chat-header">
+          <i class="fas fa-arrow-left" id="back-btn"></i>
+          <div class="header-title">
+            <img src="images/sana-ai.png" alt="Sana AI" class="sana-avatar" />
+            <strong>Sana AI</strong>
           </div>
-          <div class="nav-item" id="contact-nav-btn">
-            <i class="fas fa-comment-dots"></i>
-            <span>Contact</span>
+          <div class="header-icons">
+            <div class="dropdown">
+              <i class="fas fa-ellipsis-v" id="dots-btn"></i>
+              <div class="dropdown-content" id="dropdown-menu">
+                <a href="#" id="clear-chat-btn">Clear chat</a>
+              </div>
+            </div>
+            <i class="fas fa-minus" id="minimize-chat"></i>
           </div>
+        </div>
+        <div class="chat-box" id="chat-box"></div>
+        <div class="typing-indicator" id="typing-indicator">
+          <span></span><span></span><span></span>
+        </div>
+        <div class="input-container">
+          <input type="text" id="user-input" placeholder="Write a message..." />
+          <button id="send-btn"><i class="fas fa-paper-plane"></i></button>
         </div>
         <div class="powered-by">
-          <img src="images/sana-ai.png" alt="sana-icon" class="powered-by-icon" />
+          <img
+            src="images/sana-ai.png"
+            alt="sana-icon"
+            class="powered-by-icon"
+          />
           Powered by
           <a href="https://emrchains.com" target="_blank">EMRChains</a>
         </div>
       </div>
     </div>
 
-    <div class="view-screen" id="chat-screen">
-      <div class="chat-header">
-        <i class="fas fa-arrow-left" id="back-btn"></i>
-        <div class="header-title">
-          <img src="images/sana-ai.png" alt="Sana AI" class="sana-avatar" />
-          <strong>Sana AI</strong>
-        </div>
-        <div class="header-icons">
-          <div class="dropdown">
-            <i class="fas fa-ellipsis-v" id="dots-btn"></i>
-            <div class="dropdown-content" id="dropdown-menu">
-              <a href="#" id="clear-chat-btn">Clear chat</a>
-            </div>
-          </div>
-          <i class="fas fa-minus" id="minimize-chat"></i>
-        </div>
-      </div>
-      <div class="chat-box" id="chat-box"></div>
-      <div class="typing-indicator" id="typing-indicator">
-        <span></span><span></span><span></span>
-      </div>
-      <div class="input-container">
-        <input type="text" id="user-input" placeholder="Write a message..." />
-        <button id="send-btn"><i class="fas fa-paper-plane"></i></button>
-      </div>
-      <div class="powered-by">
-        <img src="images/sana-ai.png" alt="sana-icon" class="powered-by-icon" />
-        Powered by
-        <a href="https://emrchains.com" target="_blank">EMRChains</a>
-      </div>
-    </div>
-  </div>
-
-  <script src="script.js"></script>
-</body>
-
+    <script src="script.js"></script>
+  </body>
 </html>
