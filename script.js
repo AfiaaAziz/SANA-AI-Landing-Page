@@ -191,7 +191,7 @@ function initDemoModal() {
 
   const googleScriptURL =
     "https://script.google.com/macros/s/AKfycby0_9PMfhKJnlvUutKO7ugr0Vi5cwCPxetWuq5omwUWvymH-p2hEhcUVZwPw95dl_ED/exec";
-  const emailApiURL = "https://53082e1ef006.ngrok-free.app/send-confirmation";
+  const emailApiURL = "http://35.200.238.100:8004/send-confirmation";
 
   if (dateInput) {
     dateInput.min = new Date().toISOString().split("T")[0];
