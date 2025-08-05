@@ -2021,3 +2021,28 @@ footer {
   }
 }
 
+
+@media (max-width: 768px) {
+  .legal-page {
+    padding-top: 100px;
+    padding-bottom: 60px;
+  }
+  .legal-content {
+    padding: 2rem;
+  }
+  .legal-content h1 {
+    font-size: 2rem;
+  }
+  .legal-content h2 {
+    font-size: 1.5rem;
+  }
+}
+
+@media (max-width: 576px) {
+  .legal-content {
+    padding: 1.5rem;
+  }
+  .legal-content h1 {
+    font-size: 1.8rem;
+  }
+}
