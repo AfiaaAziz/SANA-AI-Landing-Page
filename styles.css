@@ -1939,9 +1939,6 @@ footer {
     transform: translateY(-7px);
   }
 }
-/* ========================================= */
-/*  Enhanced Legal Pages (Terms & Privacy)   */
-/* ========================================= */
 
 .background-animation {
   position: fixed;
@@ -1951,15 +1948,14 @@ footer {
   height: 100%;
   z-index: -1;
   background: linear-gradient(
-    45deg,
-    #e8f5e9,
-    #f3e5f5,
-    #e3f2fd,
-    #fff3e0,
-    #e8f5e9
+    -45deg,
+    var(--bg-white),
+    var(--bg-light),
+    #e8f5e9, 
+    var(--bg-light)
   );
   background-size: 400% 400%;
-  animation: gradient-flow 20s ease infinite;
+  animation: gradient-flow 15s ease infinite;
 }
 
 @keyframes gradient-flow {
@@ -1973,6 +1969,7 @@ footer {
     background-position: 0% 50%;
   }
 }
+
 
 .legal-page-enhanced {
   padding-bottom: 80px;
@@ -2041,7 +2038,7 @@ footer {
 .sidebar-nav {
   position: -webkit-sticky;
   position: sticky;
-  top: 100px; /* Adjust based on header height */
+  top: 100px; 
   background: rgba(255, 255, 255, 0.7);
   backdrop-filter: blur(10px);
   border: 1px solid var(--border-color);
@@ -2157,7 +2154,7 @@ footer {
 }
 
 .legal-section ul li::before {
-  content: "\f058"; /* FontAwesome check-circle icon */
+  content: "\f058"; 
   font-family: "Font Awesome 6 Free";
   font-weight: 900;
   position: absolute;
@@ -2225,7 +2222,6 @@ footer {
   }
 }
 
-/* Animations from landing page for re-use */
 @keyframes fadeInDown {
   from {
     opacity: 0;
