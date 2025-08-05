@@ -883,7 +883,7 @@ footer {
 
 .footer-socials {
   display: flex;
-  gap: 1rem;
+  gap: 0.25rem;
 }
 
 .social-icon {
