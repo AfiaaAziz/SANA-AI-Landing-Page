@@ -1,4 +1,5 @@
 document.addEventListener("DOMContentLoaded", () => {
+  // All initialization functions are called here
   initMobileMenu();
   initMobileMockup();
   initTestimonialSlider();
@@ -7,6 +8,7 @@ document.addEventListener("DOMContentLoaded", () => {
   initDemoModal();
   initHeroParallax();
   initChatbot();
+  initLegalPage(); // <-- ADD THIS LINE HERE
 });
 
 function initMobileMenu() {
@@ -189,6 +191,7 @@ function initDemoModal() {
   const errorMessage = document.getElementById("form-error");
   const dateInput = document.getElementById("date");
 
+  // Assuming config.js is loaded and contains these URLs
   const googleScriptURL = config.googleScriptURL;
   const emailApiURL = config.emailApiURL;
 
@@ -412,5 +415,74 @@ function initChatbot() {
     if (dropdownMenu.classList.contains("show")) {
       dropdownMenu.classList.remove("show");
     }
+  });
+}
+
+// ==========================================
+// Enhanced Legal Page Functionality
+// (PASTE THE NEW FUNCTION HERE)
+// ==========================================
+function initLegalPage() {
+  const sections = document.querySelectorAll(".legal-section");
+  const sidebarLinks = document.querySelectorAll(".sidebar-link");
+
+  if (sections.length === 0 || sidebarLinks.length === 0) return;
+
+  const observerOptions = {
+    root: null,
+    rootMargin: "0px",
+    threshold: 0.3,
+  };
+
+  const sectionObserver = new IntersectionObserver((entries, observer) => {
+    entries.forEach((entry) => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add("is-visible");
+      }
+    });
+  }, observerOptions);
+
+  sections.forEach((section) => {
+    sectionObserver.observe(section);
+  });
+
+  const activeLinkObserver = new IntersectionObserver(
+    (entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          const id = entry.target.getAttribute("id");
+          sidebarLinks.forEach((link) => {
+            link.classList.remove("active");
+            if (link.getAttribute("href") === `#${id}`) {
+              link.classList.add("active");
+            }
+          });
+        }
+      });
+    },
+    { rootMargin: "-40% 0px -60% 0px" }
+  );
+
+  sections.forEach((section) => {
+    activeLinkObserver.observe(section);
+  });
+
+  sidebarLinks.forEach((link) => {
+    link.addEventListener("click", function (e) {
+      e.preventDefault();
+      const targetId = this.getAttribute("href");
+      const targetElement = document.querySelector(targetId);
+      if (targetElement) {
+        const headerOffset = 90; // Adjust for fixed header
+        const elementPosition =
+          targetElement.getBoundingClientRect().top + window.pageYOffset;
+        const offsetPosition = elementPosition - headerOffset;
+
+        window.scrollTo({
+          top: offsetPosition,
+          behavior: "smooth",
+        });
+      }
+    });
   });
 }
