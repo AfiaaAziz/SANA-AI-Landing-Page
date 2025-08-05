@@ -190,7 +190,7 @@ function initDemoModal() {
   const dateInput = document.getElementById("date");
 
   const googleScriptURL = config.googleScriptURL;
-const emailApiURL = config.emailApiURL;
+  const emailApiURL = config.emailApiURL;
 
   if (dateInput) {
     dateInput.min = new Date().toISOString().split("T")[0];
