@@ -9,6 +9,7 @@ document.addEventListener("DOMContentLoaded", () => {
   initHeroParallax();
   initChatbot();
   initLegalPage();
+  initNumberCounters(); // Call the new function
 });
 
 function initMobileMenu() {
@@ -125,7 +126,7 @@ function initTestimonialSlider() {
 
 function initAdvancedScrollAnimations() {
   const animatedElements = document.querySelectorAll(
-    ".content-section, .feature-card, .step-card, .result-card"
+    ".content-section, .feature-card, .step-card, .result-card, .number-card"
   );
   if (animatedElements.length === 0) return;
 
@@ -473,4 +474,51 @@ function initLegalPage() {
       }
     });
   });
+}
+
+function initNumberCounters() {
+  const numbersGrid = document.querySelector(".numbers-grid");
+  if (!numbersGrid) return;
+
+  const counters = document.querySelectorAll(".number-counter");
+
+  const animateCounter = (counter) => {
+    const target = +counter.getAttribute("data-target");
+
+    const formatNumber = (num) => Math.ceil(num).toLocaleString("en-US");
+
+    const duration = 2000; 
+    let startTime = null;
+
+    const step = (currentTime) => {
+      if (!startTime) startTime = currentTime;
+      const progress = Math.min((currentTime - startTime) / duration, 1);
+      const currentVal = Math.floor(progress * target);
+
+      counter.innerText = formatNumber(currentVal);
+
+      if (progress < 1) {
+        requestAnimationFrame(step);
+      } else {
+        counter.innerText = formatNumber(target);
+      }
+    };
+    requestAnimationFrame(step);
+  };
+
+  const observer = new IntersectionObserver(
+    (entries, observer) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          counters.forEach(animateCounter);
+          observer.unobserve(numbersGrid); 
+        }
+      });
+    },
+    {
+      threshold: 0.5, 
+    }
+  );
+
+  observer.observe(numbersGrid);
 }

@@ -1206,6 +1206,15 @@ footer {
   #reviews .review-slide blockquote {
     font-size: 1.4rem;
   }
+
+  /* Rule for new section */
+  .numbers-grid {
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1rem;
+  }
+  .number-stat {
+    font-size: 3rem;
+  }
 }
 
 @media (max-width: 768px) {
@@ -1268,6 +1277,12 @@ footer {
   .footer-column {
     padding: 0 0.8rem;
     max-width: 100%;
+  }
+
+  /* Rule for new section */
+  .numbers-grid {
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
   }
 }
 
@@ -1429,6 +1444,17 @@ footer {
   .footer-bottom {
     font-size: 0.8rem;
     padding: 15px 0;
+  }
+
+  /* Rules for new section */
+  .number-stat {
+    font-size: 2.8rem;
+  }
+  .number-icon {
+    font-size: 2.2rem;
+  }
+  .number-card {
+    padding: 2rem 1.5rem;
   }
 }
 
@@ -1951,7 +1977,7 @@ footer {
     -45deg,
     var(--bg-white),
     var(--bg-light),
-    #e8f5e9, 
+    #e8f5e9,
     var(--bg-light)
   );
   background-size: 400% 400%;
@@ -1969,7 +1995,6 @@ footer {
     background-position: 0% 50%;
   }
 }
-
 
 .legal-page-enhanced {
   padding-bottom: 80px;
@@ -2038,7 +2063,7 @@ footer {
 .sidebar-nav {
   position: -webkit-sticky;
   position: sticky;
-  top: 100px; 
+  top: 100px;
   background: rgba(255, 255, 255, 0.7);
   backdrop-filter: blur(10px);
   border: 1px solid var(--border-color);
@@ -2154,7 +2179,7 @@ footer {
 }
 
 .legal-section ul li::before {
-  content: "\f058"; 
+  content: "\f058";
   font-family: "Font Awesome 6 Free";
   font-weight: 900;
   position: absolute;
@@ -2242,4 +2267,66 @@ footer {
     opacity: 1;
     transform: translateY(0);
   }
+}
+
+/* ============== NEW SECTION STYLES ============== */
+
+#sana-by-the-numbers {
+  background-color: var(--bg-white);
+}
+
+.numbers-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1.5rem;
+  margin-top: 3rem;
+}
+
+.number-card {
+  background-color: var(
+    --bg-light
+  ); /* Using bg-light for a slight contrast */
+  border: 1px solid var(--border-color);
+  border-radius: var(--border-radius-lg);
+  padding: 2.5rem 1.5rem;
+  text-align: center;
+  transition: var(--transition-smooth);
+  box-shadow: 0 4px 50px rgba(0, 0, 0, 0.05);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.number-card:hover {
+  transform: translateY(-8px);
+  border-color: var(--accent-color);
+  box-shadow: 0 10px 60px rgba(34, 139, 34, 0.1);
+}
+
+.number-icon {
+  font-size: 2.5rem;
+  color: var(--primary-color);
+  margin-bottom: 1.5rem;
+  opacity: 0.8;
+  transition: var(--transition-smooth);
+}
+
+.number-card:hover .number-icon {
+  transform: scale(1.1);
+  opacity: 1;
+}
+
+.number-stat {
+  font-size: 3.5rem;
+  font-weight: 700;
+  color: var(--text-dark);
+  line-height: 1;
+}
+
+.number-label {
+  font-size: 1rem;
+  color: var(--text-light);
+  margin-top: 0.8rem;
+  font-weight: 500;
 }
