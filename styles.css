@@ -1050,6 +1050,64 @@ footer {
   margin-top: 0.8rem;
 }
 
+#sana-by-the-numbers {
+  background-color: var(--bg-white);
+}
+
+.numbers-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1.5rem;
+  margin-top: 3rem;
+}
+
+.number-card {
+  background-color: var(--bg-light);
+  border: 1px solid var(--border-color);
+  border-radius: var(--border-radius-lg);
+  padding: 2.5rem 1.5rem;
+  text-align: center;
+  transition: var(--transition-smooth);
+  box-shadow: 0 4px 50px rgba(0, 0, 0, 0.05);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.number-card:hover {
+  transform: translateY(-8px);
+  border-color: var(--accent-color);
+  box-shadow: 0 10px 60px rgba(34, 139, 34, 0.1);
+}
+
+.number-icon {
+  font-size: 2.5rem;
+  color: var(--primary-color);
+  margin-bottom: 1.5rem;
+  opacity: 0.8;
+  transition: var(--transition-smooth);
+}
+
+.number-card:hover .number-icon {
+  transform: scale(1.1);
+  opacity: 1;
+}
+
+.number-stat {
+  font-size: 3.5rem;
+  font-weight: 700;
+  color: var(--text-dark);
+  line-height: 1;
+}
+
+.number-label {
+  font-size: 1rem;
+  color: var(--text-light);
+  margin-top: 0.8rem;
+  font-weight: 500;
+}
+
 @keyframes fadeIn {
   from {
     opacity: 0;
@@ -1179,6 +1237,8 @@ footer {
   }
 }
 
+/* ============== RESPONSIVE STYLES (UPDATED) ============== */
+
 @media (max-width: 992px) {
   .hero-container {
     flex-direction: column;
@@ -1195,6 +1255,12 @@ footer {
     grid-template-columns: repeat(2, 1fr);
   }
 
+  /* CORRECTED: This rule now makes the numbers section stack on tablets and phones */
+  .numbers-grid {
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+  }
+
   .client-logos-container {
     padding: 20px 0;
   }
@@ -1207,11 +1273,6 @@ footer {
     font-size: 1.4rem;
   }
 
-  /* Rule for new section */
-  .numbers-grid {
-    grid-template-columns: repeat(3, 1fr);
-    gap: 1rem;
-  }
   .number-stat {
     font-size: 3rem;
   }
@@ -1277,12 +1338,6 @@ footer {
   .footer-column {
     padding: 0 0.8rem;
     max-width: 100%;
-  }
-
-  /* Rule for new section */
-  .numbers-grid {
-    grid-template-columns: 1fr;
-    gap: 1.5rem;
   }
 }
 
@@ -1376,7 +1431,8 @@ footer {
 
   .feature-card,
   .step-card,
-  .result-card {
+  .result-card,
+  .number-card {
     padding: 1.5rem;
   }
 
@@ -1446,18 +1502,13 @@ footer {
     padding: 15px 0;
   }
 
-  /* Rules for new section */
   .number-stat {
     font-size: 2.8rem;
   }
   .number-icon {
     font-size: 2.2rem;
   }
-  .number-card {
-    padding: 2rem 1.5rem;
-  }
 }
-
 :root {
   --primary-green: #10b981;
   --primary-green-dark: #059669;
@@ -2267,66 +2318,4 @@ footer {
     opacity: 1;
     transform: translateY(0);
   }
-}
-
-/* ============== NEW SECTION STYLES ============== */
-
-#sana-by-the-numbers {
-  background-color: var(--bg-white);
-}
-
-.numbers-grid {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 1.5rem;
-  margin-top: 3rem;
-}
-
-.number-card {
-  background-color: var(
-    --bg-light
-  ); /* Using bg-light for a slight contrast */
-  border: 1px solid var(--border-color);
-  border-radius: var(--border-radius-lg);
-  padding: 2.5rem 1.5rem;
-  text-align: center;
-  transition: var(--transition-smooth);
-  box-shadow: 0 4px 50px rgba(0, 0, 0, 0.05);
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-}
-
-.number-card:hover {
-  transform: translateY(-8px);
-  border-color: var(--accent-color);
-  box-shadow: 0 10px 60px rgba(34, 139, 34, 0.1);
-}
-
-.number-icon {
-  font-size: 2.5rem;
-  color: var(--primary-color);
-  margin-bottom: 1.5rem;
-  opacity: 0.8;
-  transition: var(--transition-smooth);
-}
-
-.number-card:hover .number-icon {
-  transform: scale(1.1);
-  opacity: 1;
-}
-
-.number-stat {
-  font-size: 3.5rem;
-  font-weight: 700;
-  color: var(--text-dark);
-  line-height: 1;
-}
-
-.number-label {
-  font-size: 1rem;
-  color: var(--text-light);
-  margin-top: 0.8rem;
-  font-weight: 500;
 }

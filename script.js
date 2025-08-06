@@ -1,5 +1,4 @@
 document.addEventListener("DOMContentLoaded", () => {
-  // All initialization functions are called here
   initMobileMenu();
   initMobileMockup();
   initTestimonialSlider();
@@ -9,7 +8,7 @@ document.addEventListener("DOMContentLoaded", () => {
   initHeroParallax();
   initChatbot();
   initLegalPage();
-  initNumberCounters(); // Call the new function
+  initNumberCounters(); 
 });
 
 function initMobileMenu() {
@@ -192,7 +191,6 @@ function initDemoModal() {
   const errorMessage = document.getElementById("form-error");
   const dateInput = document.getElementById("date");
 
-  // Assuming config.js is loaded and contains these URLs
   const googleScriptURL = config.googleScriptURL;
   const emailApiURL = config.emailApiURL;
 
@@ -462,7 +460,7 @@ function initLegalPage() {
       const targetId = this.getAttribute("href");
       const targetElement = document.querySelector(targetId);
       if (targetElement) {
-        const headerOffset = 90; // Adjust for fixed header
+        const headerOffset = 90; 
         const elementPosition =
           targetElement.getBoundingClientRect().top + window.pageYOffset;
         const offsetPosition = elementPosition - headerOffset;
