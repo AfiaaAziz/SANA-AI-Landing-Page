@@ -8,7 +8,7 @@ document.addEventListener("DOMContentLoaded", () => {
   initDemoModal();
   initHeroParallax();
   initChatbot();
-  initLegalPage(); // <-- ADD THIS LINE HERE
+  initLegalPage();
 });
 
 function initMobileMenu() {
@@ -261,9 +261,7 @@ function initChatbot() {
   const welcomeScreen = document.getElementById("welcome-screen");
   const chatScreen = document.getElementById("chat-screen");
   const contactBtn = document.getElementById("contact-btn");
-  const contactNavBtn = document.getElementById("contact-nav-btn");
   const backBtn = document.getElementById("back-btn");
-  const homeBtn = document.getElementById("home-btn");
   const minimizeWelcome = document.getElementById("minimize-welcome");
   const minimizeChat = document.getElementById("minimize-chat");
   const dotsBtn = document.getElementById("dots-btn");
@@ -300,15 +298,11 @@ function initChatbot() {
   const showWelcomeScreen = () => {
     welcomeScreen.classList.add("active");
     chatScreen.classList.remove("active");
-    homeBtn.classList.add("active");
-    contactNavBtn.classList.remove("active");
   };
 
   const showChatScreen = () => {
     welcomeScreen.classList.remove("active");
     chatScreen.classList.add("active");
-    homeBtn.classList.remove("active");
-    contactNavBtn.classList.add("active");
     if (chatBox.children.length === 0) {
       initializeChat();
     }
@@ -397,9 +391,7 @@ function initChatbot() {
   minimizeWelcome.addEventListener("click", closeChat);
   minimizeChat.addEventListener("click", closeChat);
   contactBtn.addEventListener("click", showChatScreen);
-  contactNavBtn.addEventListener("click", showChatScreen);
   backBtn.addEventListener("click", showWelcomeScreen);
-  homeBtn.addEventListener("click", showWelcomeScreen);
   clearChatBtn.addEventListener("click", clearChat);
   sendBtn.addEventListener("click", sendMessage);
   userInput.addEventListener("keypress", (event) => {
@@ -418,10 +410,6 @@ function initChatbot() {
   });
 }
 
-// ==========================================
-// Enhanced Legal Page Functionality
-// (PASTE THE NEW FUNCTION HERE)
-// ==========================================
 function initLegalPage() {
   const sections = document.querySelectorAll(".legal-section");
   const sidebarLinks = document.querySelectorAll(".sidebar-link");
