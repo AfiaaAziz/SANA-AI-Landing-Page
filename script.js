@@ -316,7 +316,7 @@ function initChatbot() {
 
   const initializeChat = () => {
     displayMessage(
-      "Hi there! 👋 I’m Sana, your AI assistant from EMRChains, here to support you!",
+      "Hi there! 👋 I’m SANA, your AI assistant from EMRChains, here to support you!",
       "bot-message"
     );
   };
