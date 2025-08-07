@@ -8,7 +8,7 @@ document.addEventListener("DOMContentLoaded", () => {
   initHeroParallax();
   initChatbot();
   initLegalPage();
-  initNumberCounters(); 
+  initNumberCounters();
 });
 
 function initMobileMenu() {
@@ -354,7 +354,7 @@ function initChatbot() {
         },
         body: JSON.stringify({
           query: messageText,
-          unique_id: "PHC-ISB-2025",
+          unique_id: "EMR",
           end_user_id: endUserId,
           history: chatHistory.slice(-10),
         }),
@@ -460,7 +460,7 @@ function initLegalPage() {
       const targetId = this.getAttribute("href");
       const targetElement = document.querySelector(targetId);
       if (targetElement) {
-        const headerOffset = 90; 
+        const headerOffset = 90;
         const elementPosition =
           targetElement.getBoundingClientRect().top + window.pageYOffset;
         const offsetPosition = elementPosition - headerOffset;
@@ -485,7 +485,7 @@ function initNumberCounters() {
 
     const formatNumber = (num) => Math.ceil(num).toLocaleString("en-US");
 
-    const duration = 2000; 
+    const duration = 2000;
     let startTime = null;
 
     const step = (currentTime) => {
@@ -509,12 +509,12 @@ function initNumberCounters() {
       entries.forEach((entry) => {
         if (entry.isIntersecting) {
           counters.forEach(animateCounter);
-          observer.unobserve(numbersGrid); 
+          observer.unobserve(numbersGrid);
         }
       });
     },
     {
-      threshold: 0.5, 
+      threshold: 0.5,
     }
   );
 
